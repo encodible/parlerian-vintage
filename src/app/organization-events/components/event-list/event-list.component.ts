@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EventInfo} from '../../models/OrganizationEvent';
-import * as moment from 'moment';
+import moment from 'moment';
 
 
 @Component({

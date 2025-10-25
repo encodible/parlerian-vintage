@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PositionAssignment} from '../../models/PositionAssignment';
-import * as moment from 'moment';
+import moment from 'moment';
 
 
 @Component({
