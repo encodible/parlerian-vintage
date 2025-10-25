@@ -1,15 +1,19 @@
 <div class="wrapper">
-    <div class="sidebar" data-color="orange" data-background-color="black" data-image="/assets/img/sidebar-1.jpg">
-        <app-sidebar-cmp></app-sidebar-cmp>
-        <div class="sidebar-background" style="background-image: url(assets/img/sidebar-1.jpg)"></div>
-    </div>
-    <div class="main-panel">
-        <mat-spinner *ngIf="loading"> </mat-spinner>
-        <app-navbar-cmp></app-navbar-cmp>
-        <router-outlet></router-outlet>
-        <div *ngIf="!isMap()">
-            <app-footer-cmp></app-footer-cmp>
-        </div>
-    </div>
-    <!--<app-fixedplugin></app-fixedplugin>-->
+  <div class="sidebar" data-color="orange" data-background-color="black" data-image="/assets/img/sidebar-1.jpg">
+    <app-sidebar-cmp></app-sidebar-cmp>
+    <div class="sidebar-background" style="background-image: url(assets/img/sidebar-1.jpg)"></div>
+  </div>
+  <div class="main-panel">
+    @if (loading) {
+      <mat-spinner> </mat-spinner>
+    }
+    <app-navbar-cmp></app-navbar-cmp>
+    <router-outlet></router-outlet>
+    @if (!isMap()) {
+      <div>
+        <app-footer-cmp></app-footer-cmp>
+      </div>
+    }
+  </div>
+  <!--<app-fixedplugin></app-fixedplugin>-->
 </div>

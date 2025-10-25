@@ -9,14 +9,14 @@
   </div>
   <div class="card-body">
     <button mat-raised-button style="display: inline-block;" class="btn" (click)="back()">
-                        <span class="btn-label">
-                          <i class="material-icons">keyboard_arrow_left</i>
-                        </span>
+      <span class="btn-label">
+        <i class="material-icons">keyboard_arrow_left</i>
+      </span>
       Back
     </button>
     <button mat-raised-button style="display: inline-block;" type="button"
-            class="btn btn-rose"
-            (click)="clearForm()">
+      class="btn btn-rose"
+      (click)="clearForm()">
       <i class="material-icons">clear</i>
       Clear Form
     </button>
@@ -24,75 +24,83 @@
       <!-- first name -->
       <mat-form-field class="example-full-width" [ngClass]="{'has-success':validFirstName===true}">
         <input
-                type="text"
-                matInput
-                id="cfFirstName"
-                placeholder="First Name *"
-                [errorStateMatcher]="matcher"
-                formControlName="firstName"
-                (ngModelChange)="firstNameValidation($event)">
-        <mat-error *ngIf="!firstNameControl.hasError('required')">
-          Please enter a name
-        </mat-error>
-        <mat-error *ngIf="firstNameControl.hasError('required')">
-          First Name is <strong>required</strong>
-        </mat-error>
+          type="text"
+          matInput
+          id="cfFirstName"
+          placeholder="First Name *"
+          [errorStateMatcher]="matcher"
+          formControlName="firstName"
+          (ngModelChange)="firstNameValidation($event)">
+        @if (!firstNameControl.hasError('required')) {
+          <mat-error>
+            Please enter a name
+          </mat-error>
+        }
+        @if (firstNameControl.hasError('required')) {
+          <mat-error>
+            First Name is <strong>required</strong>
+          </mat-error>
+        }
       </mat-form-field>
       <!-- last name -->
       <mat-form-field class="example-full-width has-label"
-                      [ngClass]="{'has-success':validLastName===true}">
+        [ngClass]="{'has-success':validLastName===true}">
         <input type="text"
-               matInput
-               id="cfLastName"
-               placeholder="Last Name *"
-               (ngModelChange)="lastNameValidation($event)"
-               formControlName="lastName">
-        <mat-error *ngIf="!lastNameControl.hasError('required')">
-          Please enter a last name
-        </mat-error>
-        <mat-error *ngIf="lastNameControl.hasError('required')">
-          Last Name is <strong>required</strong>
-        </mat-error>
+          matInput
+          id="cfLastName"
+          placeholder="Last Name *"
+          (ngModelChange)="lastNameValidation($event)"
+          formControlName="lastName">
+        @if (!lastNameControl.hasError('required')) {
+          <mat-error>
+            Please enter a last name
+          </mat-error>
+        }
+        @if (lastNameControl.hasError('required')) {
+          <mat-error>
+            Last Name is <strong>required</strong>
+          </mat-error>
+        }
       </mat-form-field>
 
       <!-- street address -->
       <mat-form-field class="example-full-width has-label"
-                      [ngClass]="{'has-success':validStreetAddress===true}">
+        [ngClass]="{'has-success':validStreetAddress===true}">
         <input type="text"
-               matInput
-               id="cfStreetAddress"
-               placeholder="Street Address *"
-               (ngModelChange)="streetAddressValidation($event)"
-               formControlName="streetAddress">
+          matInput
+          id="cfStreetAddress"
+          placeholder="Street Address *"
+          (ngModelChange)="streetAddressValidation($event)"
+          formControlName="streetAddress">
         <app-field-error-display [displayError]="isFieldValid(updateForm, 'streetAddress')"
-                                 errorMsg="Enter a valid street address.">
+          errorMsg="Enter a valid street address.">
         </app-field-error-display>
       </mat-form-field>
 
       <!-- email -->
       <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEmail===true}">
         <input
-                type="email"
-                placeholder="Email"
-                matInput
-                [errorStateMatcher]="matcher"
-                (ngModelChange)="emailValidation($event)"
-                formControlName="email">
+          type="email"
+          placeholder="Email"
+          matInput
+          [errorStateMatcher]="matcher"
+          (ngModelChange)="emailValidation($event)"
+          formControlName="email">
         <app-field-error-display [displayError]="isFieldValid(updateForm, 'email')"
-                                 errorMsg="Enter a valid email.">
+          errorMsg="Enter a valid email.">
         </app-field-error-display>
       </mat-form-field>
       <!-- phone -->
       <mat-form-field class="example-full-width has-label"
-                      [ngClass]="{'has-success':validPhone===true}">
+        [ngClass]="{'has-success':validPhone===true}">
         <input type="text"
-               matInput
-               id="cfPhone"
-               placeholder="Phone "
-               (ngModelChange)="phoneValidation($event)"
-               formControlName="phone">
+          matInput
+          id="cfPhone"
+          placeholder="Phone "
+          (ngModelChange)="phoneValidation($event)"
+          formControlName="phone">
         <app-field-error-display [displayError]="isFieldValid(updateForm, 'phone')"
-                                 errorMsg="Enter a valid phone.">
+          errorMsg="Enter a valid phone.">
         </app-field-error-display>
       </mat-form-field>
 
@@ -101,10 +109,10 @@
 
       <div class="card-footer text-right">
         <button mat-raised-button type="submit"
-                class="btn btn-rose"
-                [disabled]="!this.updateForm.valid"
-                (click)="updateAssignment()"
-                (keyup.enter)="updateAssignment()">Update
+          class="btn btn-rose"
+          [disabled]="!this.updateForm.valid"
+          (click)="updateAssignment()"
+          (keyup.enter)="updateAssignment()">Update
         </button>
       </div>
     </form>

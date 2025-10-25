@@ -1,37 +1,39 @@
 <table class="table">
   <thead>
-  <tr>
-    <th class="text-left">Precinct</th>
-    <th class="text-left">Position Name</th>
-    <th class="text-center">Last Name</th>
-    <th class="text-center">First Name</th>
-    <th class="text-center">Address</th>
-    <th class="text-center">Phone</th>
-    <th class="text-center">Email</th>
-    <th class="text-right">Actions</th>
-  </tr>
+    <tr>
+      <th class="text-left">Precinct</th>
+      <th class="text-left">Position Name</th>
+      <th class="text-center">Last Name</th>
+      <th class="text-center">First Name</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Phone</th>
+      <th class="text-center">Email</th>
+      <th class="text-right">Actions</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let assignment of assignments ">
-    <td class="text-left">{{assignment.precinct}}</td>
-    <td class="text-left">{{assignment.positionName}}</td>
-    <td class="text-center">{{assignment.lastName}}</td>
-    <td class="text-center">{{assignment.firstName}}</td>
-    <td class="text-center">{{assignment.address}}</td>
-    <td class="text-center">{{assignment.phone}}</td>
-    <td class="text-center">{{assignment.email}}</td>
-    <td class="td-actions text-right">
-      <button mat-raised-button type="button" class="btn btn-success"
-              matTooltip="View Assignments" [matTooltipPosition]="'above'"
-              (click)="editAssignment(assignment)">
-        <i class="material-icons">edit</i>
-      </button>
-      <button mat-raised-button type="button" class="btn btn-info"
-              matTooltip="Dismiss Assignment" [matTooltipPosition]="'above'"
-              (click)="dismissPosition(assignment)">
-        <i class="material-icons">delete</i>
-      </button>
-    </td>
-  </tr>
+    @for (assignment of assignments ; track assignment) {
+      <tr>
+        <td class="text-left">{{assignment.precinct}}</td>
+        <td class="text-left">{{assignment.positionName}}</td>
+        <td class="text-center">{{assignment.lastName}}</td>
+        <td class="text-center">{{assignment.firstName}}</td>
+        <td class="text-center">{{assignment.address}}</td>
+        <td class="text-center">{{assignment.phone}}</td>
+        <td class="text-center">{{assignment.email}}</td>
+        <td class="td-actions text-right">
+          <button mat-raised-button type="button" class="btn btn-success"
+            matTooltip="View Assignments" [matTooltipPosition]="'above'"
+            (click)="editAssignment(assignment)">
+            <i class="material-icons">edit</i>
+          </button>
+          <button mat-raised-button type="button" class="btn btn-info"
+            matTooltip="Dismiss Assignment" [matTooltipPosition]="'above'"
+            (click)="dismissPosition(assignment)">
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </tr>
+    }
   </tbody>
 </table>

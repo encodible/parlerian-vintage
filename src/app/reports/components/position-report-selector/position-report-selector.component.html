@@ -1,21 +1,23 @@
 <div class="col-md-6">
-    <legend>Position Selection</legend>
+  <legend>Position Selection</legend>
 
-    <div class="row">
-        <div class="col-lg-5 col-md-6 col-sm-3">
-            <div class="dropdown show">
-                <a class="btn btn-warning dropdown-toggle" href="javascript:;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Position
-                </a>
+  <div class="row">
+    <div class="col-lg-5 col-md-6 col-sm-3">
+      <div class="dropdown show">
+        <a class="btn btn-warning dropdown-toggle" href="javascript:;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Position
+        </a>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" *ngFor="let position of positions"
-                        (click)="selectPosition(position)"
-                    >
-                        {{position.name}}
-                    </a>
-                </div>
-            </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          @for (position of positions; track position) {
+            <a class="dropdown-item"
+              (click)="selectPosition(position)"
+              >
+              {{position.name}}
+            </a>
+          }
         </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,55 +1,57 @@
 <div class="card">
-    <div class="card-header card-header-rose card-header-icon">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card-icon">
-                    <i class="material-icons">events</i>
-                </div>
-                <h4 class="card-title">Events</h4>
-            </div>
-            <div class="col-md-9 text-right">
-                <button type="button" class="btn btn-outline-warning"
-                        [routerLink]="['/events/new']">Add Event</button>
-            </div>
+  <div class="card-header card-header-rose card-header-icon">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card-icon">
+          <i class="material-icons">events</i>
         </div>
+        <h4 class="card-title">Events</h4>
+      </div>
+      <div class="col-md-9 text-right">
+        <button type="button" class="btn btn-outline-warning"
+        [routerLink]="['/events/new']">Add Event</button>
+      </div>
+    </div>
 
 
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>Attendees</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of _eventList; track row) {
+            <tr>
+              <td>{{row.name}}</td>
+              <td>{{row.state}}</td>
+              <td>{{row.attendanceCount}}</td>
+              <td>{{row.startTime}}</td>
+              <td>{{row.endTime}}</td>
+              <td class="td-actions text-right">
+                <button mat-raised-button type="button" class="btn btn-success btn-link"
+                  matTooltip="Add Attendee" [matTooltipPosition]="'above'"
+                  (click)="addAttendee(row)">
+                  <i class="material-icons">person_add</i>
+                </button>
+                <button mat-raised-button type="button" class="btn btn-success btn-link"
+                  matTooltip="View Attendees" [matTooltipPosition]="'above'"
+                  (click)="selectEvent(row)">
+                  <i class="material-icons">arrow_forward_ios</i>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>State</th>
-                    <th>Attendees</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let row of _eventList">
-                    <td>{{row.name}}</td>
-                    <td>{{row.state}}</td>
-                    <td>{{row.attendanceCount}}</td>
-                    <td>{{row.startTime}}</td>
-                    <td>{{row.endTime}}</td>
-                    <td class="td-actions text-right">
-                        <button mat-raised-button type="button" class="btn btn-success btn-link"
-                                matTooltip="Add Attendee" [matTooltipPosition]="'above'"
-                                (click)="addAttendee(row)">
-                            <i class="material-icons">person_add</i>
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-success btn-link"
-                                matTooltip="View Attendees" [matTooltipPosition]="'above'"
-                                (click)="selectEvent(row)">
-                            <i class="material-icons">arrow_forward_ios</i>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  </div>
 </div>

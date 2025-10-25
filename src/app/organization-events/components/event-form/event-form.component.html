@@ -1,107 +1,111 @@
 <div class="card">
+  <div class="card-header card-header-rose card-header-icon">
     <div class="card-header card-header-rose card-header-icon">
-        <div class="card-header card-header-rose card-header-icon">
-            <div class="card-icon">
-                <i class="material-icons">person_add</i>
-            </div>
-            <h4 class="card-title">Create Event</h4>
+      <div class="card-icon">
+        <i class="material-icons">person_add</i>
+      </div>
+      <h4 class="card-title">Create Event</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <button mat-raised-button style="display: inline-block;" class="btn" (click)="back()">
+      <span class="btn-label">
+        <i class="material-icons">keyboard_arrow_left</i>
+      </span>
+      Back
+    </button>
+    <button mat-raised-button style="display: inline-block;" type="button"
+      class="btn btn-rose"
+      (click)="clearForm()">
+      <i class="material-icons">clear</i>
+      Clear Form
+    </button>
+    <form [formGroup]="eventForm">
+      <!-- event name -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEventName===true}">
+        <input
+          type="text"
+          matInput
+          id="efEventName"
+          placeholder="Name *"
+          [errorStateMatcher]="matcher"
+          formControlName="eventName"
+          (ngModelChange)="eventNameValidation($event)">
+        @if (!eventNameControl.hasError('required')) {
+          <mat-error>
+            Please enter a name
+          </mat-error>
+        }
+        @if (eventNameControl.hasError('required')) {
+          <mat-error>
+            Name is <strong>required</strong>
+          </mat-error>
+        }
+      </mat-form-field>
+      <!-- description -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validDescription===true}">
+        <input
+          type="text"
+          matInput
+          id="efDescription"
+          placeholder="Description"
+          [errorStateMatcher]="matcher"
+          formControlName="description"
+          (ngModelChange)="descriptionValidation($event)">
+        <app-field-error-display [displayError]="isFieldValid(eventForm, 'description')"
+          errorMsg="Enter a valid description.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- start time -->
+      <mat-form-field class="example-full-width has-label"
+        [ngClass]="{'has-success':validStartTime===true}">
+        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+          <input matInput
+            type="text"
+            class="form-control datetimepicker-input"
+            data-target="#datetimepicker1"
+            id="efStartTime"
+            [placeholder]="'Start Time * (' + now + ')'"
+            (ngModelChange)="startTimeValidation($event)"
+            formControlName="startTime"/>
         </div>
-    </div>
-    <div class="card-body">
-        <button mat-raised-button style="display: inline-block;" class="btn" (click)="back()">
-                        <span class="btn-label">
-                          <i class="material-icons">keyboard_arrow_left</i>
-                        </span>
-            Back
+        <app-field-error-display [displayError]="isFieldValid(eventForm, 'startTime')"
+          errorMsg="Enter a valid start time.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- end time -->
+      <mat-form-field class="example-full-width has-label"
+        [ngClass]="{'has-success':validEndTime===true}">
+        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+          <input matInput
+            type="text"
+            class="form-control datetimepicker-input"
+            data-target="#datetimepicker2"
+            id="efEndTime"
+            [placeholder]="'End Time * (' + now + ')'"
+            (ngModelChange)="endTimeValidation($event)"
+            formControlName="endTime"/>
+
+        </div>
+        <app-field-error-display [displayError]="isFieldValid(eventForm, 'endTime')"
+          errorMsg="Enter a valid end time.">
+        </app-field-error-display>
+      </mat-form-field>
+
+
+      <div class="category form-category">* Required fields</div>
+
+
+      <div class="card-footer text-right">
+        <button mat-raised-button type="submit"
+          class="btn btn-rose"
+          [disabled]="!this.eventForm.valid"
+          (click)="emitFormValue()"
+          (keyup.enter)="emitFormValue()">
+          <i class="material-icons">person_add</i>
+          Create
         </button>
-        <button mat-raised-button style="display: inline-block;" type="button"
-                class="btn btn-rose"
-                (click)="clearForm()">
-            <i class="material-icons">clear</i>
-            Clear Form
-        </button>
-        <form [formGroup]="eventForm">
-            <!-- event name -->
-            <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEventName===true}">
-                <input
-                        type="text"
-                        matInput
-                        id="efEventName"
-                        placeholder="Name *"
-                        [errorStateMatcher]="matcher"
-                        formControlName="eventName"
-                        (ngModelChange)="eventNameValidation($event)">
-                <mat-error *ngIf="!eventNameControl.hasError('required')">
-                    Please enter a name
-                </mat-error>
-                <mat-error *ngIf="eventNameControl.hasError('required')">
-                    Name is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <!-- description -->
-            <mat-form-field class="example-full-width" [ngClass]="{'has-success':validDescription===true}">
-                <input
-                        type="text"
-                        matInput
-                        id="efDescription"
-                        placeholder="Description"
-                        [errorStateMatcher]="matcher"
-                        formControlName="description"
-                        (ngModelChange)="descriptionValidation($event)">
-                <app-field-error-display [displayError]="isFieldValid(eventForm, 'description')"
-                                         errorMsg="Enter a valid description.">
-                </app-field-error-display>
-            </mat-form-field>
-            <!-- start time -->
-            <mat-form-field class="example-full-width has-label"
-                            [ngClass]="{'has-success':validStartTime===true}">
-                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                    <input matInput
-                            type="text"
-                           class="form-control datetimepicker-input"
-                           data-target="#datetimepicker1"
-                           id="efStartTime"
-                           [placeholder]="'Start Time * (' + now + ')'"
-                           (ngModelChange)="startTimeValidation($event)"
-                           formControlName="startTime"/>
-                </div>
-                <app-field-error-display [displayError]="isFieldValid(eventForm, 'startTime')"
-                                         errorMsg="Enter a valid start time.">
-                </app-field-error-display>
-            </mat-form-field>
-            <!-- end time -->
-            <mat-form-field class="example-full-width has-label"
-                            [ngClass]="{'has-success':validEndTime===true}">
-                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                    <input matInput
-                           type="text"
-                           class="form-control datetimepicker-input"
-                           data-target="#datetimepicker2"
-                           id="efEndTime"
-                           [placeholder]="'End Time * (' + now + ')'"
-                           (ngModelChange)="endTimeValidation($event)"
-                           formControlName="endTime"/>
-
-                </div>
-                <app-field-error-display [displayError]="isFieldValid(eventForm, 'endTime')"
-                                         errorMsg="Enter a valid end time.">
-                </app-field-error-display>
-            </mat-form-field>
-
-
-            <div class="category form-category">* Required fields</div>
-
-
-            <div class="card-footer text-right">
-                <button mat-raised-button type="submit"
-                        class="btn btn-rose"
-                        [disabled]="!this.eventForm.valid"
-                        (click)="emitFormValue()"
-                        (keyup.enter)="emitFormValue()">
-                    <i class="material-icons">person_add</i>
-                    Create
-                </button>
-            </div>
-        </form>
-    </div>
+      </div>
+    </form>
+  </div>
 </div>
