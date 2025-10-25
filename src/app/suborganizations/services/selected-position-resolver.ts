@@ -6,7 +6,7 @@ import {SuborganizationService} from './suborganization.service';
 import {FillablePositions, PositionToFill} from '../../assignments/positions';
 import * as fromSuborgs from '../reducers';
 import * as suborgActions from '../actions/suborganization.actions';
-import {catchError, finalize, tap} from 'rxjs/operators';
+import {catchError, finalize, map, tap} from 'rxjs/operators';
 import {LoadingService} from '../../shared/loading.service';
 
 @Injectable()
@@ -35,6 +35,7 @@ export class SelectedPositionResolver implements Resolve<PositionToFill> {
                         this.store.dispatch(new suborgActions.SelectPosition(data.allocations[0]));
                         this.store.dispatch(new suborgActions.SelectPosition(data.allocations[0]));
                     }),
+                    map((data: FillablePositions) => data.allocations[0]),
                     catchError(() => {
                         return of(null)
                     }),

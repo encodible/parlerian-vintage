@@ -30,8 +30,7 @@
               "src/assets/css/demo.css",
               "src/assets/scss/material-dashboard.scss",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
@@ -140,8 +139,7 @@
               "src/assets/css/demo.css",
               "src/assets/scss/material-dashboard.scss",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/ngx-toastr/toastr.css"
             ],

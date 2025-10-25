@@ -16,6 +16,7 @@ import { EventListContainerComponent } from './containers/event-list-container/e
 import { AttendanceListContainerComponent } from './containers/attendance-list-container/attendance-list-container.component';
 import {AttendanceListResolver} from './services/attendance-list-resolver';
 import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 import { CheckInCitizenPageComponent } from './containers/check-in-citizen-page/check-in-citizen-page.component';
 import { CheckInFormComponent } from './components/check-in-form/check-in-form.component';
 import {MaterialModule} from '../material/material.module';
@@ -71,7 +72,8 @@ const organizationEventsRoutes = [
         MaterialModule,
         RouterModule.forChild(organizationEventsRoutes),
         StoreModule.forFeature('organization-events', reducers),
-        TableModule
+        TableModule,
+        ButtonModule
     ],
     declarations: [
         AttendanceListComponent,
