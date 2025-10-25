@@ -26,8 +26,8 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     location: Location;
     public loading = false;
 
-    @ViewChild('sidebar') sidebar: any;
-    @ViewChild(NavbarComponent) navbar: NavbarComponent;
+    @ViewChild('sidebar', { static: false }) sidebar: any;
+    @ViewChild(NavbarComponent, { static: false }) navbar: NavbarComponent;
 
     constructor(private router: Router, location: Location,
                 private loadingService: LoadingService) {
