@@ -38,7 +38,7 @@ import {reducers} from './reducers';
 })
 
 export class AuthModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<AuthModule> {
         return {
             ngModule: RootAuthModule,
             providers: [{provide: UaaService, useClass: UaaService}, AuthGuard],
