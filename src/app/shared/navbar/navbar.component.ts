@@ -1,6 +1,6 @@
 
 import {filter} from 'rxjs/operators';
-import {Component, OnInit, Renderer, ViewChild, ElementRef, Directive} from '@angular/core';
+import {Component, OnInit, Renderer2, ViewChild, ElementRef, Directive} from '@angular/core';
 import {ROUTES} from '../.././sidebar/sidebar.component';
 import {Router, ActivatedRoute, NavigationEnd, NavigationStart} from '@angular/router';
 import {Subscription} from 'rxjs';
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
 
     @ViewChild('app-navbar-cmp', { static: false }) button: any;
 
-    constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router,) {
+    constructor(location: Location, private renderer: Renderer2, private element: ElementRef, private router: Router,) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;

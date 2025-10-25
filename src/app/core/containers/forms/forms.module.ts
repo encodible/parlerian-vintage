@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
-import { TagInputModule } from 'ngx-chips';
 import { SelectModule } from 'ng2-select';
 import { MaterialModule } from '../../../material/material.module';
 import { FormsRoutes } from './forms.routing';
@@ -22,7 +21,6 @@ import { FieldErrorDisplayComponent } from './validationforms/field-error-displa
     FormsModule,
     ReactiveFormsModule,
     NouisliderModule,
-    TagInputModule,
     MaterialModule
   ],
   declarations: [
