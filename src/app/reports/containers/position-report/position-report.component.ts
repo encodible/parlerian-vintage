@@ -3,7 +3,7 @@ import {PositionService} from '../../../assignments/services/position.service';
 import {PositionDto} from '../../../assignments';
 import {Observable} from 'rxjs';
 import {saveAs} from 'file-saver';
-import * as moment from 'moment';
+import moment from 'moment';
 
 @Component({
     selector: 'app-position-report',

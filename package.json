@@ -93,6 +93,7 @@
     "@types/chartist": "0.9.34",
     "@types/jasmine": "^5.1.12",
     "@types/jquery": "1.10.31",
+    "@types/moment": "^2.11.29",
     "@types/node": "6.0.73",
     "codelyzer": "^4.3.0",
     "jasmine-core": "^5.12.0",

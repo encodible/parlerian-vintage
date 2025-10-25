@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EventCreationForm} from '../../models/OrganizationEvent';
-import * as moment from 'moment';
+import moment from 'moment';
 import {MyErrorStateMatcher} from '../../../core/components/advanced-search/MyErrorStateMatcher';
 
 declare var $: any;
