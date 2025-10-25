@@ -61,7 +61,16 @@
               "node_modules/chartist/dist/chartist.js",
               "node_modules/chartist-plugin-zoom/dist/chartist-plugin-zoom.js"
             ],
-            "browser": "src/main.ts"
+            "browser": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "file-saver",
+              "moment",
+              "chartist",
+              "lodash",
+              "sweetalert2",
+              "url",
+              "deep-freeze-strict"
+            ]
           },
           "configurations": {
             "production": {
