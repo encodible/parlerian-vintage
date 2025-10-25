@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*!
  * Datetimepicker for Bootstrap 3
  * ! version : 4.7.14
@@ -203,7 +205,7 @@
   -ms-transform: translateY(-$infix-margin-top - $infix-padding)
                  scale($font-scale);
 
-  width: 100% / $font-scale;
+  width: math.div(100%, $font-scale);
 }
 .mat-form-field-label {
 
