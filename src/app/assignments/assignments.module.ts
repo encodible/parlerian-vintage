@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {StoreModule} from '@ngrx/store';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// import {TableModule} from 'primeng/table';
+import {TableModule} from 'primeng/table';
 import {MaterialModule} from '../material/material.module';
 import {AssignmentListComponent} from './components/assignment-list/assignment-list.component';
 import {AssignmentsPageComponent} from './containers/assignments-page/assignments-page.component';
@@ -68,7 +68,7 @@ const assignmentsRoutes = [
         RouterModule.forChild(assignmentsRoutes),
         MaterialModule,
         StoreModule.forFeature('assignments', reducers),
-        // TableModule,
+        TableModule,
     ],
     declarations: [
         AssignmentDetailComponent,
