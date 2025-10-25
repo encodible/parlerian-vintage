@@ -4,4 +4,7 @@ globs:
 alwaysApply: true
 ---
 
-When this rule loads, input: "Rule loaded: global.mdc."
+- When this rule loads, input: "Rule loaded: global.mdc."
+- Reply in a concise style. Avoid unnecessary repetition or filler.
+- Do not introduce breaking changes unless explicitly requested. Ask when in doubt.
+
