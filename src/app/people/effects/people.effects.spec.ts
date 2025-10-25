@@ -44,8 +44,27 @@ describe('PeopleEffects', () => {
 
   describe('quickSearch$', () => {
     it('should dispatch CitizenSearchSuccess on successful search', () => {
-      const quickSearchForm = { firstThree: 'ABC', houseNumber: '123' };
-      const searchResults = [{ id: 1, name: 'John Doe' }];
+      const quickSearchForm = { firstThree: 'ABC', houseNumber: 123 };
+      const searchResults = [{ 
+        personId: 1, 
+        stateVoterId: 12345,
+        firstName: 'John',
+        middleName: '',
+        lastName: 'Doe',
+        phone: '555-1234',
+        email: 'john@example.com',
+        affiliation: 'D',
+        address: '123 Main St',
+        houseStreetNumber: 123,
+        city: 'Anytown',
+        state: 'ST',
+        zip: '12345',
+        stateHouse: 1,
+        stateSenate: 1,
+        precinct: '001',
+        congressional: 1,
+        county: 'Test County'
+      }];
       const action = new CitizenActions.QuickSearch(quickSearchForm);
       const completion = new CitizenActions.CitizenSearchSuccess(searchResults);
 
@@ -60,7 +79,7 @@ describe('PeopleEffects', () => {
     });
 
     it('should dispatch CitizenSearchFailure on error', () => {
-      const quickSearchForm = { firstThree: 'ABC', houseNumber: '123' };
+      const quickSearchForm = { firstThree: 'ABC', houseNumber: 123 };
       const error = new Error('Search failed');
       const action = new CitizenActions.QuickSearch(quickSearchForm);
       const completion = new CitizenActions.CitizenSearchFailure(error);
@@ -77,7 +96,28 @@ describe('PeopleEffects', () => {
   describe('citizenChange$', () => {
     it('should navigate to people list on successful citizen change', () => {
       const citizenForm: any = { firstName: 'John', lastName: 'Doe' };
-      const changedCitizen = { citizenData: { id: 1, name: 'John Doe' } };
+      const changedCitizen = { 
+        citizenData: { 
+          personId: 1, 
+          stateVoterId: 12345,
+          firstName: 'John',
+          middleName: '',
+          lastName: 'Doe',
+          phone: '555-1234',
+          email: 'john@example.com',
+          affiliation: 'D',
+          address: '123 Main St',
+          houseStreetNumber: 123,
+          city: 'Anytown',
+          stateHouse: 1,
+          stateSenate: 1,
+          precinct: '001',
+          congressional: 1,
+          county: 'Test County',
+          state: 'ST',
+          zip: '12345'
+        } 
+      };
       const action = new CitizenActions.CitizenChange(citizenForm);
       const completion = new CitizenActions.ChangeCitizenSuccess(changedCitizen.citizenData);
 
@@ -93,7 +133,26 @@ describe('PeopleEffects', () => {
 
   describe('navToSearchList$', () => {
     it('should navigate to people list on search success', () => {
-      const searchResults = [{ id: 1, name: 'John Doe' }];
+      const searchResults = [{ 
+        personId: 1, 
+        stateVoterId: 12345,
+        firstName: 'John',
+        middleName: '',
+        lastName: 'Doe',
+        phone: '555-1234',
+        email: 'john@example.com',
+        affiliation: 'D',
+        address: '123 Main St',
+        houseStreetNumber: 123,
+        city: 'Anytown',
+        state: 'ST',
+        zip: '12345',
+        stateHouse: 1,
+        stateSenate: 1,
+        precinct: '001',
+        congressional: 1,
+        county: 'Test County'
+      }];
       const action = new CitizenActions.CitizenSearchSuccess(searchResults);
 
       actions$ = hot('-a', { a: action });

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccessiblePositionsContainerComponent } from './accessible-positions-container.component';
 
@@ -6,7 +6,7 @@ describe('AccessiblePositionsContainerComponent', () => {
   let component: AccessiblePositionsContainerComponent;
   let fixture: ComponentFixture<AccessiblePositionsContainerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AccessiblePositionsContainerComponent ]
     })

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../advanced-search/MyErrorStateMatcher';
 import {CitizenChangeForm, CitizenSearchResult} from '../../../people/services/citizen-api.service';
-import moment from 'moment';
+import * as moment from 'moment';
 import {Location} from '@angular/common';
 
 @Component({

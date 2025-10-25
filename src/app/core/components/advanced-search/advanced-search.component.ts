@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import moment from 'moment';
+import * as moment from 'moment';
 import {CitizenAdvancedSearchForm} from '../../../people/services/citizen-api.service';
 import {MyErrorStateMatcher} from './MyErrorStateMatcher';
 
