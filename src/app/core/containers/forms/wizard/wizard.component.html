@@ -32,7 +32,8 @@
               </ul>
             </div>
             <div class="card-body">
-              <div class="tab-content">
+              @defer (on viewport) {
+                <div class="tab-content">
                 <div class="tab-pane active" id="about">
                   <h5 class="info-text"> Let's start with the basic information (with validation)</h5>
                   <div class="row justify-content-center">
@@ -162,6 +163,12 @@
                   </div>
                 </div>
               </div>
+              } @placeholder {
+                <div class="loading-placeholder">
+                  <i class="material-icons">wizard</i>
+                  <span>Loading Wizard Form...</span>
+                </div>
+              }
             </div>
             <div class="card-footer">
               <div class="mr-auto">

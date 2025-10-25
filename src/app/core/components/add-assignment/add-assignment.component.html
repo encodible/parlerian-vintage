@@ -21,35 +21,70 @@
             Add Citizen
           </button>
           @if (isQuickSearching) {
-            <app-quick-search
-              (onSearch)="quickSearch($event)">
-            </app-quick-search>
+            @defer (on interaction) {
+              <app-quick-search
+                (onSearch)="quickSearch($event)">
+              </app-quick-search>
+            } @placeholder {
+              <div class="loading-placeholder">
+                <i class="material-icons">search</i>
+                <span>Loading Quick Search...</span>
+              </div>
+            }
           }
           @if (isAdvancedSearching) {
-            <app-advanced-search
-              (onSearch)="advancedSearch($event)">
-            </app-advanced-search>
+            @defer (on interaction) {
+              <app-advanced-search
+                (onSearch)="advancedSearch($event)">
+              </app-advanced-search>
+            } @placeholder {
+              <div class="loading-placeholder">
+                <i class="material-icons">youtube_searched_for</i>
+                <span>Loading Advanced Search...</span>
+              </div>
+            }
           }
           @if (isAddingCitizen) {
-            <app-citizen-form
-              [isUpdating]="false"
-              (onChange)="addCitizen($event)" >
-            </app-citizen-form>
+            @defer (on interaction) {
+              <app-citizen-form
+                [isUpdating]="false"
+                (onChange)="addCitizen($event)" >
+              </app-citizen-form>
+            } @placeholder {
+              <div class="loading-placeholder">
+                <i class="material-icons">person_add</i>
+                <span>Loading Citizen Form...</span>
+              </div>
+            }
           }
         </div>
         @if (isSelecting) {
-          <app-citizen-selection-list
-            [searchResults]="citizenSearchResults"
-            (onSelect)="selectCitizen($event)">
-          </app-citizen-selection-list>
+          @defer (on viewport) {
+            <app-citizen-selection-list
+              [searchResults]="citizenSearchResults"
+              (onSelect)="selectCitizen($event)">
+            </app-citizen-selection-list>
+          } @placeholder {
+            <div class="loading-placeholder">
+              <i class="material-icons">list</i>
+              <span>Loading Citizen Selection...</span>
+            </div>
+          }
         }
         @if (isAssigning) {
-          <app-assignment-form
-            [suborganization]="selectedSuborganization"
-            [positionToFill]="selectedPosition"
-            [initCitizen]="initCitizen"
-            (onAssign)="assignPosition($event)">
-          </app-assignment-form>
+          @defer (on interaction) {
+            <app-assignment-form
+              [suborganization]="selectedSuborganization"
+              [positionToFill]="selectedPosition"
+              [initCitizen]="initCitizen"
+              (onAssign)="assignPosition($event)">
+            </app-assignment-form>
+          } @placeholder {
+            <div class="loading-placeholder">
+              <i class="material-icons">assignment</i>
+              <span>Loading Assignment Form...</span>
+            </div>
+          }
         }
       </div>
     }
