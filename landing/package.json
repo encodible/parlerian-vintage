@@ -1,0 +1,14 @@
+{
+  "name": "veti-web",
+  "version": "1.0.0",
+  "description": "Veti Technologies PLLC public website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kent Bull",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "dependencies": {
+    "local-web-server": "^3.0.7"
+  }
+}

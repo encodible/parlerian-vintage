@@ -1,0 +1,41 @@
+<div class="table-responsive">
+  <button mat-raised-button class="btn"
+          [routerLink]="['/suborganizations/list']" >
+                <span class="btn-label">
+                  <i class="material-icons">keyboard_arrow_left</i>
+                </span>
+    Back
+  </button>
+  <h4 class="">{{(this.selectedSuborganization$ | async)?.commonName}} Positions</h4>
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="text-left">Position Name</th>
+      <th class="text-center">Allocated</th>
+      <th class="text-center">Elected</th>
+      <th class="text-right">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fillablePosition of suborgFillablePositions$ | async">
+      <td class="text-left">{{fillablePosition.positionName}}</td>
+      <td class="text-center">{{fillablePosition.allocationCount}}</td>
+      <td class="text-center">{{fillablePosition.filledCount}}</td>
+      <td class="td-actions text-right">
+        <button mat-raised-button type="button" class="btn btn-info"
+                [ngClass]="{'btn-default': fillablePosition.filledCount == fillablePosition.allocationCount}"
+                [disabled]="fillablePosition.filledCount == fillablePosition.allocationCount"
+                matTooltip="Create Assignment" [matTooltipPosition]="'above'"
+                (click)="selectPositionToAssign(fillablePosition)">
+          <i class="material-icons">person_add</i>
+        </button>
+        <button mat-raised-button type="button" class="btn btn-success"
+                matTooltip="View Assignments" [matTooltipPosition]="'above'"
+                (click)="viewAssignedPositions(fillablePosition)">
+          <i class="material-icons">edit</i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,5 @@
+<mat-spinner *ngIf="loading"> </mat-spinner>
+<app-position-report-selector
+        [positions]="positions$ | async"
+        (onSelect)="downloadPositionReport($event)"
+></app-position-report-selector>

@@ -1,0 +1,247 @@
+<div class="card">
+  <div class="card-header card-header-rose card-header-icon">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">person_add</i>
+      </div>
+      <h4 class="card-title">{{isUpdating? 'Update' : 'Add'}} Person</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <button mat-raised-button style="display: inline-block;" class="btn" (click)="back()">
+                        <span class="btn-label">
+                          <i class="material-icons">keyboard_arrow_left</i>
+                        </span>
+      Back
+    </button>
+    <button mat-raised-button style="display: inline-block;" type="button"
+            class="btn btn-rose"
+            (click)="clearForm()">
+      <i class="material-icons">clear</i>
+      Clear Form
+    </button>
+    <form [formGroup]="citizenForm">
+      <!-- first name -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validFirstName===true}">
+        <input
+                type="text"
+                matInput
+                id="cfFirstName"
+                placeholder="First Name *"
+                [errorStateMatcher]="matcher"
+                formControlName="firstName"
+                (ngModelChange)="firstNameValidation($event)">
+        <mat-error *ngIf="!firstNameControl.hasError('required')">
+          Please enter a name
+        </mat-error>
+        <mat-error *ngIf="firstNameControl.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- middle name -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validMiddleName===true}">
+        <input
+                type="text"
+                matInput
+                id="cfMiddleName"
+                placeholder="Middle Name"
+                [errorStateMatcher]="matcher"
+                formControlName="middleName"
+                (ngModelChange)="middleNameValidation($event)">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'middleName')"
+                                 errorMsg="Enter a valid middle name.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- last name -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validLastName===true}">
+        <input type="text"
+               matInput
+               id="cfLastName"
+               placeholder="Last Name *"
+               (ngModelChange)="lastNameValidation($event)"
+               formControlName="lastName">
+        <mat-error *ngIf="!lastNameControl.hasError('required')">
+          Please enter a last name
+        </mat-error>
+        <mat-error *ngIf="lastNameControl.hasError('required')">
+          Last Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- house street number -->
+      <mat-form-field class="example-full-width"
+                      [ngClass]="{'has-success':validHouseStreetNumber===true}">
+        <input matInput
+               id="cfHouseStreetNumber"
+               placeholder="House Street Number *"
+               type="number"
+               formControlName="houseStreetNumber"
+               (ngModelChange)="houseStreetNumberValidation($event)">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'houseStreetNumber')"
+                                 errorMsg="Enter a valid house street number.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- street address -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validStreetAddress===true}">
+        <input type="text"
+               matInput
+               id="cfStreetAddress"
+               placeholder="Street Address *"
+               (ngModelChange)="streetAddressValidation($event)"
+               formControlName="streetAddress">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'streetAddress')"
+                                 errorMsg="Enter a valid street address.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- city -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validCity===true}">
+        <input type="text"
+               matInput
+               id="cfCity"
+               placeholder="City *"
+               (ngModelChange)="cityValidation($event)"
+               formControlName="city">
+        <mat-error *ngIf="!cityControl.hasError('required')">
+          Please enter a city
+        </mat-error>
+        <mat-error *ngIf="cityControl.hasError('required')">
+          City is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- state -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validState===true}">
+        <input type="text"
+               matInput
+               id="cfState"
+               placeholder="State *"
+               (ngModelChange)="stateValidation($event)"
+               formControlName="state">
+        <mat-error *ngIf="!stateControl.hasError('required')">
+          Please enter a state
+        </mat-error>
+        <mat-error *ngIf="stateControl.hasError('required')">
+          State is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- zip code -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validZipCode===true}">
+        <input type="text"
+               matInput
+               id="cfZipCode"
+               placeholder="Zip Code *"
+               (ngModelChange)="zipCodeValidation($event)"
+               formControlName="zipCode">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'zipCode')"
+                                 errorMsg="Enter a valid zip code.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- affiliation -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validAffiliation===true}">
+        <input
+                type="text"
+                matInput
+                id="cfAffiliation"
+                placeholder="Affiliation *"
+                [errorStateMatcher]="matcher"
+                formControlName="affiliation"
+                (ngModelChange)="affiliationNameValidation($event)">
+        <mat-error *ngIf="!affiliationControl.hasError('required')">
+          Please enter an affiliation
+        </mat-error>
+        <mat-error *ngIf="affiliationControl.hasError('required')">
+          Affiliation is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- precinct -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validPrecinct===true}">
+        <input
+                type="text"
+                matInput
+                id="cfPrecinct"
+                placeholder="Precinct *"
+                [errorStateMatcher]="matcher"
+                formControlName="precinct"
+                (ngModelChange)="precinctNameValidation($event)">
+        <mat-error *ngIf="!precinctControl.hasError('required')">
+          Please enter a precinct
+        </mat-error>
+        <mat-error *ngIf="precinctControl.hasError('required')">
+          Precinct is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- email -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validEmail===true}">
+        <input
+                type="email"
+                placeholder="Email"
+                matInput
+                [errorStateMatcher]="matcher"
+                (ngModelChange)="emailValidation($event)"
+                formControlName="email">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'email')"
+                                 errorMsg="Enter a valid email.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- phone -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validPhone===true}">
+        <input type="text"
+               matInput
+               id="cfPhone"
+               placeholder="Phone "
+               (ngModelChange)="phoneValidation($event)"
+               formControlName="phone">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'phone')"
+                                 errorMsg="Enter a valid phone.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- dob -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validDob===true}">
+        <input type="text"
+               matInput
+               id="cfDob"
+               placeholder="DOB (yyyy-mm-dd) Ex: 1960-01-01"
+               class="form-control datepicker"
+               (ngModelChange)="dobValidation($event)"
+               formControlName="dob">
+        <mat-error *ngIf="!dobControl.hasError('required')">
+          Please enter a date of birth
+        </mat-error>
+      </mat-form-field>
+      <!-- house street number -->
+      <mat-form-field class="example-full-width"
+                      [ngClass]="{'has-success':validStateVoterId===true}">
+        <input matInput
+               id="cfStateVoterId"
+               placeholder="State Voter ID"
+               type="number"
+               formControlName="stateVoterId"
+               (ngModelChange)="stateVoterIdValidation($event)"
+               (keyup.enter)="emitFormValue()">
+        <app-field-error-display [displayError]="isFieldValid(citizenForm, 'stateVoterId')"
+                                 errorMsg="Enter a valid state voter ID.">
+        </app-field-error-display>
+      </mat-form-field>
+
+
+      <div class="category form-category">* Required fields</div>
+
+
+      <div class="card-footer text-right">
+        <button mat-raised-button type="submit"
+                class="btn btn-rose"
+                [disabled]="!this.citizenForm.valid"
+                (click)="emitFormValue()"
+                (keyup.enter)="emitFormValue()">
+          <i class="material-icons">person_add</i>
+          {{isUpdating? 'Update' : 'Add'}}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

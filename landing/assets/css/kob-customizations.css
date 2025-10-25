@@ -1,0 +1,52 @@
+body > .navbar-collapse .nav > li.buy-now{
+    border-bottom: 0;
+}
+body > .navbar-collapse .nav > li.buy-now > a{
+    border: 1px solid;
+    text-align: center;
+    padding: 15px;
+    line-height: 1em;
+    border-radius: 2px;
+    margin: 20px 30px 5px 0;
+}
+
+.section-team-4 {
+    padding-top: 5em;
+}
+.section-team-4 .team {
+    text-align: center;
+    padding: 10px 0;
+}
+.section-team-4 .team .member {
+    padding: 0 10px;
+}
+.section-team-4 .team .member img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+.section-team-4 .team .member .description {
+    padding: 10px 0;
+}
+.section-team-4 .team .member .description .details {
+    font-size: 14px;
+}
+.section-team-4 .team .member .description .details i {
+    color: #777777;
+}
+
+.mobile-data-tool {
+    background-image: url("../img/veti-logo.png")
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}

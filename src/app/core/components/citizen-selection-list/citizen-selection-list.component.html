@@ -1,0 +1,34 @@
+<h4 class="card-description">Search Results</h4>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="text-center">Last Name</th>
+      <th class="text-left">First Name</th>
+      <th class="text-center">Middle Name</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">CD</th>
+      <th class="text-center">SD</th>
+      <th class="text-center">HD</th>
+      <th class="center">Select</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let citizen of searchResults">
+      <td class="text-left">{{citizen.lastName}}</td>
+      <td class="text-left">{{citizen.firstName}}</td>
+      <td class="text-left">{{citizen.middleName}}</td>
+      <td class="text-left">{{citizen.address}}</td>
+      <td class="text-left">{{citizen.congressional}}</td>
+      <td class="text-left">{{citizen.stateSenate}}</td>
+      <td class="text-left">{{citizen.stateHouse}}</td>
+      <td class="td-actions center">
+        <button mat-raised-button type="button" class="btn btn-warning"
+                (click)="selectResult(citizen)">
+          <i class="material-icons">how_to_reg</i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

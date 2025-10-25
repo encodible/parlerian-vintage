@@ -1,0 +1,120 @@
+<div class="card">
+  <div class="card-header card-header-rose card-header-icon">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">youtube_searched_for</i>
+      </div>
+      <h4 class="card-title">Advanced Search</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="advancedSearch">
+      <!-- first name -->
+      <mat-form-field class="example-full-width" [ngClass]="{'has-success':validFirstName===true}">
+        <input
+                type="text"
+                matInput
+                id="firstName"
+                placeholder="First Name *"
+                [errorStateMatcher]="matcher"
+                formControlName="firstName"
+                (ngModelChange)="firstNameValidation($event)">
+        <mat-error *ngIf="!firstNameControl.hasError('required')">
+          Please enter a name
+        </mat-error>
+        <mat-error *ngIf="firstNameControl.hasError('required')">
+          First Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- last name -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validLastName===true}">
+        <input type="text"
+               matInput
+               id="lastName"
+               placeholder="Last Name *"
+               (ngModelChange)="lastNameValidation($event)"
+               formControlName="lastName">
+        <mat-error *ngIf="!lastNameControl.hasError('required')">
+          Please enter a last name
+        </mat-error>
+        <mat-error *ngIf="lastNameControl.hasError('required')">
+          Last Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- street address -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validStreetAddress===true}">
+        <input type="text"
+               matInput
+               id="streetAddress"
+               placeholder="Street Address *"
+               (ngModelChange)="streetAddressValidation($event)"
+               formControlName="streetAddress">
+        <app-field-error-display [displayError]="isFieldValid(advancedSearch, 'streetAddress')"
+                                 errorMsg="Enter a valid street address.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- city -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validCity===true}">
+        <input type="text"
+               matInput
+               id="city"
+               placeholder="City *"
+               (ngModelChange)="cityValidation($event)"
+               formControlName="city">
+        <mat-error *ngIf="!cityControl.hasError('required')">
+          Please enter a city
+        </mat-error>
+        <mat-error *ngIf="cityControl.hasError('required')">
+          City is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- zip code -->
+      <mat-form-field class="example-full-width has-label"
+                      [ngClass]="{'has-success':validZipCode===true}">
+        <input type="text"
+               matInput
+               id="zipCode"
+               placeholder="Zip Code *"
+               (ngModelChange)="zipCodeValidation($event)"
+               formControlName="zipCode">
+        <app-field-error-display [displayError]="isFieldValid(advancedSearch, 'zipCode')"
+                                 errorMsg="Enter a valid zip code.">
+        </app-field-error-display>
+      </mat-form-field>
+      <!-- dob -->
+      <mat-form-field class="example-full-width has-label">
+        <input type="date"
+               matInput
+               id="dob"
+               placeholder="DOB *"
+               (ngModelChange)="dobValidation($event)"
+               formControlName="dob"
+               (keyup.enter)="search()">
+        <mat-error *ngIf="!dobControl.hasError('required')">
+          Please enter a date of birth
+        </mat-error>
+        <mat-error *ngIf="dobControl.hasError('required')">
+          Date of Birth is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <div class="category form-category">* Required fields</div>
+
+
+      <div class="card-footer text-right">
+        <button mat-raised-button type="submit"
+                class="btn btn-rose"
+                [disabled]="!this.advancedSearch.valid"
+                (click)="search()"
+                (keyup.enter)="search()">
+          <i class="material-icons">youtube_searched_for</i>
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

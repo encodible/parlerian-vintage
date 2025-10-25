@@ -1,0 +1,116 @@
+<div class="wrapper wrapper-full-page">
+    <div class="page-header login-page header-filter" filter-color="black"
+         style="background-image: url('assets/img/login.jpg'); background-size: cover; background-position: top center;">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="container">
+            <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+                <form [formGroup]="loginForm" class="form">
+                    <div class="card card-login card-hidden">
+                        <div class="card-header card-header-rose text-center">
+                            <h4 class="card-title">Log in</h4>
+                            <!--<div class="social-line">-->
+                            <!--<a href="#pablo" class="btn btn-just-icon btn-link btn-white">-->
+                            <!--<i class="fa fa-facebook-square"></i>-->
+                            <!--</a>-->
+                            <!--<a href="#pablo" class="btn btn-just-icon btn-link btn-white">-->
+                            <!--<i class="fa fa-twitter"></i>-->
+                            <!--</a>-->
+                            <!--<a href="#pablo" class="btn btn-just-icon btn-link btn-white">-->
+                            <!--<i class="fa fa-google-plus"></i>-->
+                            <!--</a>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="card-body" *ngIf="loading">
+                            <mat-spinner ></mat-spinner>
+                        </div>
+                        <div class="card-body " *ngIf="!loading">
+                            <!--<p class="card-description text-center">Or Be Classical</p>-->
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="material-icons">face</i>
+                                    </span>
+                                  </div>
+                                  <input
+                                          formControlName="username"
+                                          type="text"
+                                          matInput
+                                          class="form-control"
+                                          placeholder="Username..."
+                                          [ngClass]="{ 'has-danger': submitted && loginForm.controls.username.errors}">
+                                </div>
+                                <mat-error *ngIf="submitted && loginForm.controls.username.errors">
+                                    Please enter a valid username
+                                    <mat-error *ngIf="submitted && loginForm.controls.username.errors.required">
+                                        Username is <strong>required</strong>
+                                    </mat-error>
+                                </mat-error>
+                            </span>
+
+                            <span class="bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="material-icons">lock_outline</i>
+                                    </span>
+                                  </div>
+                                  <input formControlName="password"
+                                         type="password"
+                                         matInput
+                                         class="form-control"
+                                         placeholder="Password..."
+                                  [ngClass]="{ 'has-danger': submitted && loginForm.controls.password.errors}">
+                                </div>
+                                <mat-error *ngIf="submitted && loginForm.controls.password.errors">
+                                    Please enter a valid password
+                                    <mat-error *ngIf="submitted && loginForm.controls.password.errors.required">
+                                        Password is <strong>required</strong>
+                                    </mat-error>
+                                </mat-error>
+                            </span>
+                        </div>
+                        <div class="card-footer justify-content-center">
+                            <button class="btn btn-rose btn-link btn-lg"
+                                    (click)="loginHandler()"
+
+                            >Lets Go
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="https://veti.io">
+                                Veti Technologies
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://veti.io/about">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.veti.io">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <img src="/assets/img/positivessl_trust_seal_lg_222x54.png" width="92" height="22" />
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    version {{version}} &copy;
+                    {{test | date: 'yyyy'}}, made with <i class="material-icons">favorite</i> by
+                    <a href="https://veti.io" target="_blank">Veti Technologies</a>.
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

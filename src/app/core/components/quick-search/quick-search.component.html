@@ -1,0 +1,45 @@
+<div class="card ">
+    <div class="card-header card-header-warning card-header-icon">
+        <div class="card-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <h4 class="card-title">Quick Search</h4>
+    </div>
+    <div class="card-body ">
+        <form [formGroup]="quickSearch">
+            <mat-form-field class="example-full-width" [ngClass]="{'has-success':validFirstThree===true}">
+                <input matInput
+                       placeholder="First Three of Last Name *"
+                       type="text"
+                       formControlName="firstThree"
+                       (ngModelChange)="firstThreeValidation($event)">
+                <app-field-error-display [displayError]="isFieldValid(quickSearch, 'firstThree')"
+                                         errorMsg="Enter a valid first three letters.">
+                </app-field-error-display>
+            </mat-form-field>
+            <mat-form-field class="example-full-width"
+                            [ngClass]="{'has-success':validStreetHouseNumber===true}">
+                <input matInput
+                       placeholder="House Street Number *"
+                       type="number"
+                       formControlName="streetHouseNumber"
+                       (ngModelChange)="streetHouseNumberValidation($event)"
+                       (keyup.enter)="onSearchClicked($event)">
+                <app-field-error-display [displayError]="isFieldValid(quickSearch, 'firstThree')"
+                                         errorMsg="Enter a valid first three letters.">
+                </app-field-error-display>
+            </mat-form-field>
+            <div class="category form-category">* Required fields</div>
+        </form>
+    </div>
+    <div class="card-footer ">
+        <button mat-raised-button type="submit"
+                class="btn btn-fill btn-warning"
+                [disabled]="!this.quickSearch.valid"
+                (click)="onSearchClicked($event)"
+                (keyup.enter)="onSearchClicked($event.target.value)">
+            <i class="material-icons">search</i>
+            Search
+        </button>
+    </div>
+</div>

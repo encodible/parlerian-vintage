@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+src/
+tools/
+angular_material_schematics-ZlbHcs/
+e2e/
+documentation/
+typings/
+k8s/

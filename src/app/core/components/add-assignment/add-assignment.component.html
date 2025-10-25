@@ -1,0 +1,43 @@
+<div *ngIf="isPositionSelected">
+    <h4 class="card-title">Position {{(positionToAssign$ | async).positionName}}</h4>
+    <div *ngIf="isSuborganizationSelected">
+        <h4 class="card-description">In suborganization {{selectedSuborganization.commonName}}</h4>
+        <div>
+            <button class="btn btn-warning"
+                    (click)="showQuickSearch()">
+                <i class="material-icons">search</i>
+                Quick Search
+            </button>
+            <button class="btn btn-warning"
+                    (click)="showAdvancedSearch()">
+                <i class="material-icons">youtube_searched_for</i>
+                Advanced Search
+            </button>
+            <button class="btn btn-warning"
+                    (click)="showAddCitizen()">
+                <i class="material-icons">person_add</i>
+                Add Citizen
+            </button>
+            <app-quick-search *ngIf="isQuickSearching"
+                              (onSearch)="quickSearch($event)">
+            </app-quick-search>
+            <app-advanced-search *ngIf="isAdvancedSearching"
+                                 (onSearch)="advancedSearch($event)">
+            </app-advanced-search>
+            <app-citizen-form *ngIf="isAddingCitizen"
+            [isUpdating]="false"
+            (onChange)="addCitizen($event)" >
+            </app-citizen-form>
+        </div>
+        <app-citizen-selection-list *ngIf="isSelecting"
+                                    [searchResults]="citizenSearchResults"
+                                    (onSelect)="selectCitizen($event)">
+        </app-citizen-selection-list>
+        <app-assignment-form *ngIf="isAssigning"
+                             [suborganization]="selectedSuborganization"
+                             [positionToFill]="selectedPosition"
+                             [initCitizen]="initCitizen"
+                             (onAssign)="assignPosition($event)">
+        </app-assignment-form>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="col-md-12">
+    <app-attendance-list [attendees]="attendees$ | async"
+                         [orgEvent]="orgEvent$ | async"
+                         (deselect)="deselectEvent()"></app-attendance-list>
+</div>

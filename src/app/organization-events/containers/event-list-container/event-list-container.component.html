@@ -1,0 +1,8 @@
+<div class="col-md-12">
+    <app-event-list [eventList]="eventList$ | async"
+                    (selectedEvent)="selectEvent($event)"></app-event-list>
+</div>
+
+<div class="col-md-10 ml-auto mr-auto">
+    <app-event-calendar [eventList]="eventList$ | async"></app-event-calendar>
+</div>

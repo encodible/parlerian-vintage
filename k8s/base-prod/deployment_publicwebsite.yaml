@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publicwebsite-ui
+  labels:
+    app: publicwebsite
+spec:
+  replicas: 2
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: publicwebsite
+  template:
+    metadata:
+      labels:
+        app: publicwebsite
+    spec:
+      containers:
+        - name: publicwebsite
+          image: gcr.io/veti-prod/public-website:v1.1.62
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health/readiness
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 3

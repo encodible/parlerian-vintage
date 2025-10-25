@@ -1,0 +1,74 @@
+
+<div class="card">
+  <div class="card-header card-header-primary card-header-icon">
+    <div class="card-icon">
+      <i class="material-icons">people</i>
+    </div>
+
+    <h4 class="card-title">People</h4>
+  </div>
+  <div class="card-body">
+
+    <div class="toolbar">
+      <!--        Here you can write extra buttons/actions for the toolbar              -->
+      <button mat-raised-button class="btn" (click)="back()">
+                <span class="btn-label">
+                  <i class="material-icons">keyboard_arrow_left</i>
+                </span>
+        Back
+      </button>
+    </div>
+    <div *ngIf="!showResultsTable">
+      No results
+    </div>
+    <div class="material-datatables" *ngIf="showResultsTable">
+      <table id="peopleTable" class="table table-striped table-no-bordered table-hover"
+             cellspacing="0" width="100%" style="width:100%">
+        <thead>
+        <tr>
+          <th>{{ peopleTableData.headerRow[0] }}</th>
+          <th>{{ peopleTableData.headerRow[1] }}</th>
+          <th>{{ peopleTableData.headerRow[2] }}</th>
+          <th>{{ peopleTableData.headerRow[3] }}</th>
+          <th>{{ peopleTableData.headerRow[4] }}</th>
+          <th>{{ peopleTableData.headerRow[5] }}</th>
+          <th>{{ peopleTableData.headerRow[6] }}</th>
+          <th>{{ peopleTableData.headerRow[7] }}</th>
+          <th>{{ peopleTableData.headerRow[8] }}</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+          <th>{{ peopleTableData.footerRow[0] }}</th>
+          <th>{{ peopleTableData.footerRow[1] }}</th>
+          <th>{{ peopleTableData.footerRow[2] }}</th>
+          <th>{{ peopleTableData.footerRow[3] }}</th>
+          <th>{{ peopleTableData.footerRow[4] }}</th>
+          <th>{{ peopleTableData.footerRow[5] }}</th>
+          <th>{{ peopleTableData.footerRow[6] }}</th>
+          <th>{{ peopleTableData.footerRow[7] }}</th>
+          <th>{{ peopleTableData.footerRow[8] }}</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr *ngFor="let row of searchResults$ | async">
+          <td>{{row.firstName}}</td>
+          <td>{{row.lastName}}</td>
+          <td>{{row.affiliation}}</td>
+          <td>{{row.address}}</td>
+          <td>{{row.stateHouse}}</td>
+          <td>{{row.stateSenate}}</td>
+          <td>{{row.congressional}}</td>
+          <td>{{row.precinct}}</td>
+          <td class="text-center">
+            <a class="btn btn-link btn-success btn-just-icon"
+            (click)="selectCitizen(row)"><i
+                    class="material-icons">create</i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- end content-->
+</div>

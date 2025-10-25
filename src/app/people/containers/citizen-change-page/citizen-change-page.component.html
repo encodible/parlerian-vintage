@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <app-citizen-form
+                    [isUpdating]="isUpdating"
+                    [initCitizen]="selectedCitizen"
+                    (onChange)="changeCitizen($event)"
+                    (onClear)="deselectCitizen()">
+            </app-citizen-form>
+        </div>
+    </div>
+</div>
