@@ -1,7 +1,7 @@
 /**
  * @author Kent Bull
  */
-import {Injectable} from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {Router} from '@angular/router';
 import {UaaService} from '../../core';
@@ -10,6 +10,11 @@ import {map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class OrganizationEventsEffects {
+    // Make services public for testing
+    public readonly actions$ = inject(Actions);
+    public readonly authService = inject(UaaService);
+    public readonly router = inject(Router);
+
     navToEventDetail$ = createEffect(() => this.actions$.pipe(
         ofType<NavToEventDetail>(EventActionTypes.NavToEventDetail),
         tap(event => {
@@ -24,11 +29,4 @@ export class OrganizationEventsEffects {
             this.router.navigate(['/events'])
         })
     ), { dispatch: false });
-
-    constructor(
-        private actions$: Actions,
-        private authService: UaaService,
-        private router: Router
-    ) {
-    }
 }

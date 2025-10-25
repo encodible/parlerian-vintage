@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as CitizenActions from '../actions/citizens.actions';
 import {ChangeCitizenFailure, ChangeCitizenSuccess, CitizenSearchFailure, CitizenSearchSuccess} from '../actions/citizens.actions';
@@ -11,6 +11,11 @@ import {LoadingService} from '../../shared/loading.service';
 
 @Injectable()
 export class PeopleEffects {
+    // Make services public for testing
+    public readonly actions$ = inject(Actions);
+    public readonly citizenApi = inject(CitizenApi);
+    public readonly router = inject(Router);
+    public readonly loadingService = inject(LoadingService);
 
     quickSearch$ = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.QuickSearch>(CitizenActions.CitizenActionTypes.QuickSearch),
@@ -97,13 +102,4 @@ export class PeopleEffects {
             this.router.navigate(['/people/list'])
         }),
     ), { dispatch: false });
-
-    constructor(
-        private actions$: Actions,
-        private citizenApi: CitizenApi,
-        private router: Router,
-        private loadingService: LoadingService
-    ) {
-    }
-
 }

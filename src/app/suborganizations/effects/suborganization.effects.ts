@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {ActivatedRoute, Router} from '@angular/router';
 import {catchError, exhaustMap, finalize, map, mergeMap, switchMap, tap} from 'rxjs/operators';
@@ -15,6 +15,14 @@ import {LoadingService} from '../../shared/loading.service';
 
 @Injectable()
 export class SuborganizationEffects {
+    // Make services public for testing
+    public readonly actions$ = inject(Actions);
+    public readonly assignmentsService = inject(AssignmentsService);
+    public readonly router = inject(Router);
+    public readonly route = inject(ActivatedRoute);
+    public readonly suborganizationService = inject(SuborganizationService);
+    public readonly citizenApi = inject(CitizenApi);
+    public readonly loadingService = inject(LoadingService);
 
     addCitizen$ = createEffect(() =>
         this.actions$.pipe(
@@ -170,15 +178,4 @@ export class SuborganizationEffects {
             })
         )
     );
-
-    constructor(
-        private actions$: Actions,
-        private assignmentsService: AssignmentsService,
-        private router: Router,
-        private route: ActivatedRoute,
-        private suborganizationService: SuborganizationService,
-        private citizenApi: CitizenApi,
-        private loadingService: LoadingService
-    ) {
-    }
 }
