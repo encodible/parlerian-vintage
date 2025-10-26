@@ -10,9 +10,10 @@ import { TimelineRoutes } from './timeline.routing';
     imports: [
         CommonModule,
         RouterModule.forChild(TimelineRoutes),
-        FormsModule
+        FormsModule,
+        TimelineComponent
     ],
-    declarations: [TimelineComponent]
+    declarations: []
 })
 
 export class TimelineModule {}

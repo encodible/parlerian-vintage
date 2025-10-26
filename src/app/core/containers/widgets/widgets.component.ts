@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {TableData} from '../md/md-table/md-table.component';
 
 declare var $: any;
@@ -10,7 +14,9 @@ declare interface Task {
 
 @Component({
     selector: 'app-widgets-cmp',
-    templateUrl: 'widgets.component.html'
+    templateUrl: 'widgets.component.html',
+    standalone: true,
+    imports: [CommonModule, MatButtonModule, MatRippleModule, MatTooltipModule]
 })
 
 export class WidgetsComponent implements OnInit {
