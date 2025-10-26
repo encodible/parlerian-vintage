@@ -1,4 +1,5 @@
 import {Component, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 declare const google: any;
 
@@ -11,7 +12,9 @@ draggable?: boolean;
 
 @Component({
     selector: 'app-fullscreen-map-cmp',
-    templateUrl: 'fullscreenmap.component.html'
+    templateUrl: 'fullscreenmap.component.html',
+    standalone: true,
+    imports: [CommonModule]
 })
 
 export class FullScreenMapsComponent implements OnInit {
