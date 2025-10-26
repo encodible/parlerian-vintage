@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, AfterViewInit, ChangeDetectionStrategy} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import * as Chartist from 'chartist';
 
 export interface LegendItem {
@@ -15,7 +16,9 @@ export enum ChartType {
 @Component({
   selector: 'app-md-chart',
   templateUrl: './md-chart.component.html',
-  styleUrls: ['./md-chart.component.css']
+  styleUrls: ['./md-chart.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
 
 export class MdChartComponent implements OnInit, AfterViewInit {
