@@ -7,7 +7,9 @@ declare const $: any;
 
 @Component({
     selector: 'app-calendar-cmp',
-    templateUrl: 'calendar.component.html'
+    templateUrl: 'calendar.component.html',
+    standalone: true,
+    imports: []
 })
 
 export class CalendarComponent implements OnInit {

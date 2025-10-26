@@ -11,9 +11,10 @@ import { ChartsRoutes } from './charts.routing';
     imports: [
         CommonModule,
         RouterModule.forChild(ChartsRoutes),
-        FormsModule
+        FormsModule,
+        ChartsComponent
     ],
-    declarations: [ChartsComponent]
+    declarations: []
 })
 
 export class ChartsModule {}

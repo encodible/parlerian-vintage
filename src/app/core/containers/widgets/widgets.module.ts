@@ -12,9 +12,10 @@ import {WidgetsRoutes} from './widgets.routing';
         RouterModule.forChild(WidgetsRoutes),
         CommonModule,
         FormsModule,
-        MaterialModule
+        MaterialModule,
+        WidgetsComponent
     ],
-    declarations: [WidgetsComponent]
+    declarations: []
 })
 
 export class WidgetsModule {}
