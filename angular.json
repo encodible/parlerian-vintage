@@ -25,7 +25,6 @@
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-              "node_modules/angular-calendar/scss/angular-calendar.scss",
               "node_modules/sweetalert2/dist/sweetalert2.css",
               "src/assets/css/demo.css",
               "src/assets/scss/material-dashboard.scss",
