@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AssignmentsActionPadComponent } from './assignments-action-pad.component';
 
@@ -6,7 +6,7 @@ describe('AssignmentsActionPadComponent', () => {
   let component: AssignmentsActionPadComponent;
   let fixture: ComponentFixture<AssignmentsActionPadComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AssignmentsActionPadComponent ]
     })

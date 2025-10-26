@@ -32,7 +32,8 @@
               </ul>
             </div>
             <div class="card-body">
-              <div class="tab-content">
+              @defer (on viewport) {
+                <div class="tab-content">
                 <div class="tab-pane active" id="about">
                   <h5 class="info-text"> Let's start with the basic information (with validation)</h5>
                   <div class="row justify-content-center">
@@ -54,11 +55,11 @@
                         </div>
                         <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'firstName')">
                           <input type="text"
-                          name="firstname"
-                          matInput
-                          id="text"
-                          placeholder="First Name"
-                          formControlName="firstName">
+                            name="firstname"
+                            matInput
+                            id="text"
+                            placeholder="First Name"
+                            formControlName="firstName">
                         </mat-form-field>
                       </div>
                       <div class="input-group form-control-lg">
@@ -69,11 +70,11 @@
                         </div>
                         <mat-form-field class="example-full-width has-label" [ngClass]="displayFieldCss(type, 'lastName')">
                           <input type="text"
-                          name="lastname"
-                          matInput
-                          id="text"
-                          placeholder="last Name"
-                          formControlName="lastName">
+                            name="lastname"
+                            matInput
+                            id="text"
+                            placeholder="last Name"
+                            formControlName="lastName">
                         </mat-form-field>
                       </div>
                     </div>
@@ -85,9 +86,9 @@
                           </span>
                         </div>
                         <mat-form-field class="example-full-width">
-                           <input matInput placeholder="Email (required)" [formControl]="emailFormControl"
-                             type="email" id="exampleemalil" name="email">
-                         </mat-form-field>
+                          <input matInput placeholder="Email (required)" [formControl]="emailFormControl"
+                            type="email" id="exampleemalil" name="email">
+                        </mat-form-field>
                       </div>
                     </div>
                   </div>
@@ -149,17 +150,25 @@
                       </mat-form-field>
                     </div>
                     <div class="col-sm-5">
-                        <mat-form-field>
-                            <mat-select placeholder="Single City" name="city">
-                              <mat-option *ngFor="let city of cities" [value]="city.value">
-                                {{ city.viewValue }}
-                              </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                      <mat-form-field>
+                        <mat-select placeholder="Single City" name="city">
+                          @for (city of cities; track city) {
+                            <mat-option [value]="city.value">
+                              {{ city.viewValue }}
+                            </mat-option>
+                          }
+                        </mat-select>
+                      </mat-form-field>
                     </div>
                   </div>
                 </div>
               </div>
+              } @placeholder {
+                <div class="loading-placeholder">
+                  <i class="material-icons">wizard</i>
+                  <span>Loading Wizard Form...</span>
+                </div>
+              }
             </div>
             <div class="card-footer">
               <div class="mr-auto">

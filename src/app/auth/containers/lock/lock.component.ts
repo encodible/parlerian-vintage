@@ -1,9 +1,12 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-lock-cmp',
-    templateUrl: './lock.component.html'
+    templateUrl: './lock.component.html',
+    standalone: true,
+    imports: [CommonModule]
 })
 
 export class LockComponent implements OnInit, OnDestroy {

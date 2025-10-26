@@ -1,4 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 import {Suborganization} from '../../../suborganizations/models/suborganization';
 import {PositionToFill} from '../../../assignments/positions';
 import {PositionAssignmentForm} from '../../../assignments/position-assignments';
@@ -6,11 +11,14 @@ import {CitizenSearchResult} from '../../../people/services/citizen-api.service'
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../advanced-search/MyErrorStateMatcher';
 import {Location} from '@angular/common';
+import {FieldErrorDisplayComponent} from '../field-error-display/field-error-display.component';
 
 @Component({
     selector: 'app-assignment-form',
     templateUrl: './assignment-form.component.html',
-    styleUrls: ['./assignment-form.component.scss']
+    styleUrls: ['./assignment-form.component.scss'],
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, FieldErrorDisplayComponent]
 })
 export class AssignmentFormComponent implements OnInit, OnChanges {
 

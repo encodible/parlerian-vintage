@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 import {PositionAssignment} from '../../models/PositionAssignment';
 import {select, Store} from '@ngrx/store';
 import * as fromAssignments from '../../reducers';
@@ -9,7 +11,9 @@ import {Suborganization} from '../../../suborganizations/models/suborganization'
 @Component({
     selector: 'app-assignments-page',
     templateUrl: './assignments-page.component.html',
-    styleUrls: ['./assignments-page.component.scss']
+    styleUrls: ['./assignments-page.component.scss'],
+    standalone: true,
+    imports: [CommonModule, RouterOutlet]
 })
 export class AssignmentsPageComponent implements OnInit {
 

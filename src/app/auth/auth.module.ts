@@ -3,6 +3,7 @@ import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
+import {Actions} from '@ngrx/effects';
 
 import {EditUserComponent} from './containers/edit-user/edit-user.component';
 import {UserProfileComponent} from './containers/user-profile/user-profile.component';
@@ -25,8 +26,6 @@ import {reducers} from './reducers';
         FormsModule,
         MaterialModule,
         ReactiveFormsModule,
-    ],
-    declarations: [
         EditUserComponent,
         LoginComponent,
         NotFoundComponent,
@@ -34,14 +33,18 @@ import {reducers} from './reducers';
         LockComponent,
         PricingComponent,
         UserProfileComponent
-    ]
+    ],
+    declarations: []
 })
 
 export class AuthModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<AuthModule> {
         return {
             ngModule: RootAuthModule,
-            providers: [{provide: UaaService, useClass: UaaService}, AuthGuard],
+            providers: [
+                {provide: UaaService, useClass: UaaService}, 
+                AuthGuard
+            ],
         };
     }
 }

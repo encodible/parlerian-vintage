@@ -1,16 +1,26 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import {Location} from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EventCreationForm} from '../../models/OrganizationEvent';
-import * as moment from 'moment';
+import moment from 'moment';
 import {MyErrorStateMatcher} from '../../../core/components/advanced-search/MyErrorStateMatcher';
+import {FieldErrorDisplayComponent} from '../../../core/components/field-error-display/field-error-display.component';
 
 declare var $: any;
 
 @Component({
     selector: 'app-event-form',
     templateUrl: './event-form.component.html',
-    styleUrls: ['./event-form.component.scss']
+    styleUrls: ['./event-form.component.scss'],
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, FieldErrorDisplayComponent]
 })
 export class EventFormComponent implements OnInit {
 

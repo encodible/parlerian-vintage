@@ -1,15 +1,19 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import * as fromPeople from '../../reducers';
 import {Subscription} from 'rxjs';
 import {CitizenSearchResult} from '../../services/citizen-api.service';
 import {CitizenChange, DeselectCitizen} from '../../actions/citizens.actions';
+import {CitizenFormComponent} from '../../../core/components/citizen-form/citizen-form.component';
 
 @Component({
     selector: 'app-citizen-change-page',
     templateUrl: './citizen-change-page.component.html',
-    styleUrls: ['./citizen-change-page.component.scss']
+    styleUrls: ['./citizen-change-page.component.scss'],
+    standalone: true,
+    imports: [CommonModule, CitizenFormComponent]
 })
 export class CitizenChangePageComponent implements OnInit, OnDestroy {
     isUpdating = false;

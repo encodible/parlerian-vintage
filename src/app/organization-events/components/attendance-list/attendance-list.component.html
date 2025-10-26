@@ -1,48 +1,52 @@
 <div class="card">
-    <div class="card-header card-header-success card-header-icon">
-        <div class="card-icon">
-            <i class="material-icons">event_seat</i>
+  <div class="card-header card-header-success card-header-icon">
+    <div class="card-icon">
+      <i class="material-icons">event_seat</i>
+    </div>
+    <h4 class="card-title">Event Attendance: {{orgEvent?.name}}
+      <button mat-raised-button type="button" class="btn btn-danger btn-link"
+        matTooltip="Close Event" [matTooltipPosition]="'above'"
+        (click)="deselectEvent()">
+        <i class="material-icons">close</i>
+      </button>
+    </h4>
+  </div>
+  <div class="card-body">
+    <p-table #attTable
+      [columns]="cols"
+      [value]="attendees"
+      selectionMode="multiple"
+      [(selection)]="selectedAttendees">
+      <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix">
+          <button type="button" pButton icon="fa fa-file-o" iconPos="left" label="All Data"
+            matTooltip="Export to CSV" [matTooltipPosition]="'above'"
+            (click)="attTable.exportCSV()" style="float:left">Export All
+          </button>
+          <button type="button" pButton icon="fa fa-file" iconPos="left" label="Selection Only"
+            matTooltip="Export to CSV" [matTooltipPosition]="'above'"
+            (click)="attTable.exportCSV({selectionOnly:true})" style="float:right">Export Selection
+          </button>
         </div>
-        <h4 class="card-title">Event Attendance: {{orgEvent?.name}}
-            <button mat-raised-button type="button" class="btn btn-danger btn-link"
-                    matTooltip="Close Event" [matTooltipPosition]="'above'"
-                    (click)="deselectEvent()">
-                <i class="material-icons">close</i>
-            </button>
-        </h4>
-    </div>
-    <div class="card-body">
-        <p-table #attTable
-                 [columns]="cols"
-                 [value]="attendees"
-                 selectionMode="multiple"
-                 [(selection)]="selectedAttendees">
-            <ng-template pTemplate="caption">
-                <div class="ui-helper-clearfix">
-                    <button type="button" pButton icon="fa fa-file-o" iconPos="left" label="All Data"
-                            matTooltip="Export to CSV" [matTooltipPosition]="'above'"
-                            (click)="attTable.exportCSV()" style="float:left">Export All
-                    </button>
-                    <button type="button" pButton icon="fa fa-file" iconPos="left" label="Selection Only"
-                            matTooltip="Export to CSV" [matTooltipPosition]="'above'"
-                            (click)="attTable.exportCSV({selectionOnly:true})" style="float:right">Export Selection
-                    </button>
-                </div>
-            </ng-template>
-            <ng-template pTemplate="header" let-columns>
-                <tr>
-                    <th *ngFor="let col of columns">
-                        {{col.header}}
-                    </th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-rowData let-columns="columns">
-                <tr [pSelectableRow]="rowData">
-                    <td *ngFor="let col of columns">
-                        {{rowData[col.field]}}
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          @for (col of columns; track col) {
+            <th>
+              {{col.header}}
+            </th>
+          }
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          @for (col of columns; track col) {
+            <td>
+              {{rowData[col.field]}}
+            </td>
+          }
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>

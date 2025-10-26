@@ -11,9 +11,10 @@ import { CalendarRoutes } from './calendar.routing';
     imports: [
         CommonModule,
         RouterModule.forChild(CalendarRoutes),
-        FormsModule
+        FormsModule,
+        CalendarComponent
     ],
-    declarations: [CalendarComponent]
+    declarations: []
 })
 
 export class CalendarModule {}

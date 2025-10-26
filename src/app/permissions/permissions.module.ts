@@ -16,9 +16,10 @@ import {RouterModule} from '@angular/router';
                     }
                 ]
             }
-        ])
+        ]),
+        PermissionsListComponent
     ],
-    declarations: [PermissionsListComponent]
+    declarations: []
 })
 export class PermissionsModule {
 }

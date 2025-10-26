@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {OrganizationEventsService} from '../../services/organization-events.service';
 import {Store} from '@ngrx/store';
 import * as fromOrgEvents from '../../reducers';
 import * as EventActions from '../../actions/organization-events.actions';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {EventFormComponent} from '../../components/event-form/event-form.component';
 
 @Component({
   selector: 'app-event-creation-page',
   templateUrl: './event-creation-page.component.html',
-  styleUrls: ['./event-creation-page.component.scss']
+  styleUrls: ['./event-creation-page.component.scss'],
+  standalone: true,
+  imports: [CommonModule, EventFormComponent]
 })
 export class EventCreationPageComponent implements OnInit {
 

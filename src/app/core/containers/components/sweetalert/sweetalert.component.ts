@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
 import swal from 'sweetalert2';
 declare var $: any;
 
 @Component({
     selector: 'app-sweetalert-cmp',
-    templateUrl: 'sweetalert.component.html'
+    templateUrl: 'sweetalert.component.html',
+    standalone: true,
+    imports: [CommonModule, MatButtonModule, MatRippleModule]
 })
 
 export class SweetAlertComponent {

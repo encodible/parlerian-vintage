@@ -14,11 +14,11 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
- @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+ @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
  @import "core/variables";
  @import "core/mixins";
- @import "~bootstrap/scss/bootstrap";
+ @import "bootstrap/scss/bootstrap";
  @import "core/reboot";
 
 // Core Components
@@ -76,7 +76,7 @@
  @import "plugins/fullcalendar";
  @import "plugins/wizard-card";
  @import "plugins/chartist";
- @import "~chartist/dist/scss/chartist";
+ @import "chartist/dist/scss/chartist";
  @import "plugins/select-bootstrap";
  @import "plugins/perfect-scrollbar";
  @import "plugins/plugin-tagsinput";
@@ -84,3 +84,52 @@
 
 
 @import "dashboard/responsive";
+
+// =========================================================
+// Deferred Loading Placeholder Styles
+// =========================================================
+// Global styles for Angular 17 deferred loading placeholders
+
+.loading-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  color: #6c757d;
+  font-size: 14px;
+  min-height: 60px;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+
+  i {
+    margin-right: 8px;
+    font-size: 18px;
+    opacity: 0.7;
+  }
+
+  span {
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+  }
+}
+
+// Animation for loading state
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

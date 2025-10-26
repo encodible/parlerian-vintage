@@ -3,7 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material';
+import {MatNativeDateModule} from '@angular/material/core';
 
 import {AppComponent} from './app.component';
 
@@ -60,12 +60,11 @@ import {LoadingService} from './shared/loading.service';
             logOnly: environment.production,
         }),
         ToastrModule.forRoot(),
-    ],
-    declarations: [
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent
     ],
+    declarations: [],
     bootstrap: [AppComponent],
     providers: [
         AssignmentsService,

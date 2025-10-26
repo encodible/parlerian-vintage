@@ -16,13 +16,12 @@ import { DataTableComponent } from './datatable.net/datatable.component';
     CommonModule,
     RouterModule.forChild(TablesRoutes),
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ExtendedTableComponent,
+    DataTableComponent,
+    RegularTableComponent
   ],
-  declarations: [
-      ExtendedTableComponent,
-      DataTableComponent,
-      RegularTableComponent
-  ]
+  declarations: []
 })
 
 export class TablesModule {}

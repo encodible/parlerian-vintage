@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
@@ -12,7 +16,9 @@ import {Suborganization} from '../../../suborganizations/models/suborganization'
 @Component({
     selector: 'app-suborg-assignment-list',
     templateUrl: './suborg-assignment-list.component.html',
-    styleUrls: ['./suborg-assignment-list.component.scss']
+    styleUrls: ['./suborg-assignment-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, RouterModule, MatButtonModule, MatTooltipModule]
 })
 export class SuborgAssignmentListComponent implements OnInit {
 

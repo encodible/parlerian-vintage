@@ -35,15 +35,14 @@ import {MaterialModule} from '../material/material.module';
                     }
                 ]
             }
-        ])
-    ],
-    declarations: [
+        ]),
         ReportPageComponent,
         ReportsActionPadComponent,
         PositionReportComponent,
         DistrictReportComponent,
         PositionReportSelectorComponent
-    ]
+    ],
+    declarations: []
 })
 export class ReportsModule {
 }

@@ -1,8 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {Subscription} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import * as _ from 'lodash';
 
+import {AssignmentSimpleListComponent} from '../../../assignments/assignment-simple-list/assignment-simple-list.component';
 import {PositionToFill} from '../../../assignments/positions';
 import * as fromSuborgs from '../../reducers';
 import * as SuborgActions from '../../actions/suborganization.actions';
@@ -15,7 +19,9 @@ import {AssignmentsService} from '../../../assignments/services/assignments.serv
 @Component({
     selector: 'app-suborg-assigned-positions',
     templateUrl: './suborg-assigned-positions.component.html',
-    styleUrls: ['./suborg-assigned-positions.component.scss']
+    styleUrls: ['./suborg-assigned-positions.component.scss'],
+    standalone: true,
+    imports: [CommonModule, MatButtonModule, MatTooltipModule, AssignmentSimpleListComponent]
 })
 export class SuborgAssignedPositionsComponent implements OnInit, OnDestroy {
 

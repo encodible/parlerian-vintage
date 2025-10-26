@@ -1,9 +1,12 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
 import { Component, OnInit, OnChanges, AfterViewInit, SimpleChanges } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule, FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { FormBuilder } from '@angular/forms';
 
 declare const $: any;
 interface FileReaderEventTarget extends EventTarget {
@@ -25,7 +28,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
     selector: 'app-wizard-cmp',
     templateUrl: 'wizard.component.html',
-    styleUrls: ['wizard.component.css']
+    styleUrls: ['wizard.component.css'],
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule]
 })
 
 export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
@@ -261,8 +266,8 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
             if (input[0].files && input[0].files[0]) {
                 const reader = new FileReader();
 
-                reader.onload = function (e: FileReaderEvent) {
-                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                reader.onload = function (e: ProgressEvent) {
+                    $('#wizardPicturePreview').attr('src', (e.target as FileReader).result).fadeIn('slow');
                 };
                 reader.readAsDataURL(input[0].files[0]);
             }

@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
+import {Injectable, inject} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as CitizenActions from '../actions/citizens.actions';
 import {ChangeCitizenFailure, ChangeCitizenSuccess, CitizenSearchFailure, CitizenSearchSuccess} from '../actions/citizens.actions';
 import {catchError, exhaustMap, finalize, map, mergeMap, tap} from 'rxjs/operators';
@@ -11,9 +11,13 @@ import {LoadingService} from '../../shared/loading.service';
 
 @Injectable()
 export class PeopleEffects {
+    // Make services public for testing
+    public readonly actions$ = inject(Actions);
+    public readonly citizenApi = inject(CitizenApi);
+    public readonly router = inject(Router);
+    public readonly loadingService = inject(LoadingService);
 
-    @Effect()
-    quickSearch$ = this.actions$.pipe(
+    quickSearch$ = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.QuickSearch>(CitizenActions.CitizenActionTypes.QuickSearch),
         map(action => action.payload),
         exhaustMap(quickSearchForm => {
@@ -29,10 +33,9 @@ export class PeopleEffects {
                     finalize(() => this.loadingService.setLoading(false))
                 );
         })
-    );
+    ));
 
-    @Effect()
-    nameSearch = this.actions$.pipe(
+    nameSearch = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.NameSearch>(CitizenActions.CitizenActionTypes.NameSearch),
         map(action => action.payload),
         exhaustMap(nameSearchForm => {
@@ -48,10 +51,9 @@ export class PeopleEffects {
                     finalize(() => this.loadingService.setLoading(false))
                 );
         })
-    );
+    ));
 
-    @Effect()
-    advancedSearch$ = this.actions$.pipe(
+    advancedSearch$ = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.AdvancedSearch>(CitizenActions.CitizenActionTypes.AdvancedSearch),
         map(action => action.payload),
         exhaustMap(advancedSearchForm => {
@@ -66,10 +68,9 @@ export class PeopleEffects {
                     finalize(() => this.loadingService.setLoading(false))
                 );
         })
-    );
+    ));
 
-    @Effect()
-    citizenChange$ = this.actions$.pipe(
+    citizenChange$ = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.CitizenChange>(CitizenActions.CitizenActionTypes.CitizenChange),
         map(action => action.payload),
         exhaustMap((citizenForm: CitizenChangeForm) => {
@@ -86,30 +87,19 @@ export class PeopleEffects {
                     finalize(() => this.loadingService.setLoading(false))
                 )
         })
-    );
+    ));
 
-    @Effect({dispatch: false})
-    navToUpdateCitizen$ = this.actions$.pipe(
+    navToUpdateCitizen$ = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.SelectCitizen>(CitizenActions.CitizenActionTypes.SelectCitizen),
         map(action => action.payload),
         tap((selectedCitizen: CitizenSearchResult) =>
             this.router.navigate(['/people', selectedCitizen.stateVoterId, { isUpdating: 'true' } ]))
-    );
+    ), { dispatch: false });
 
-    @Effect({dispatch: false})
-    navToSearchList$ = this.actions$.pipe(
+    navToSearchList$ = createEffect(() => this.actions$.pipe(
         ofType<CitizenActions.CitizenSearchSuccess>(CitizenActions.CitizenActionTypes.CitizenSearchSuccess),
         tap(() => {
             this.router.navigate(['/people/list'])
         }),
-    );
-
-    constructor(
-        private actions$: Actions,
-        private citizenApi: CitizenApi,
-        private router: Router,
-        private loadingService: LoadingService
-    ) {
-    }
-
+    ), { dispatch: false });
 }

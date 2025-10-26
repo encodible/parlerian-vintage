@@ -11,7 +11,7 @@ import {MaterialModule} from '../material/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CitizenApi} from './services/citizen-api.service';
 import {PeopleEffects} from './effects/people.effects';
-import {EffectsModule} from '@ngrx/effects';
+import {EffectsModule, Actions} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './reducers';
 import {PeopleActionPadComponent} from './people-action-pad/people-action-pad.component';
@@ -72,18 +72,16 @@ const peopleRoutes = [
         ReactiveFormsModule,
         RouterModule.forChild(peopleRoutes),
         StoreModule.forFeature('citizens', reducers),
-    ],
-    declarations: [
         CitizenChangePageComponent,
         PeopleListComponent,
         PersonComponent,
         PeoplePageComponent,
         PeopleSearchComponent,
         PeopleAdvancedSearchComponent,
-        CitizenChangePageComponent,
         PeopleActionPadComponent,
         PeopleActionPadNavComponent,
     ],
+    declarations: [],
     providers: [
         CitizenApi
     ]

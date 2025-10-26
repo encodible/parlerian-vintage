@@ -19,34 +19,34 @@ export const AppRoutes: Routes = [
             // Routes for custom items
             {
                 path: '',
-                loadChildren: './dashboard/dashboard.module#DashboardModule'
+                loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
             }, {
                 path: 'organization',
-                loadChildren: './organization/organization.module#OrganizationModule'
+                loadChildren: () => import('./organization/organization.module').then(m => m.OrganizationModule)
             }, {
                 path: 'suborganizations',
-                loadChildren: './suborganizations/suborganizations.module#SuborganizationsModule'
+                loadChildren: () => import('./suborganizations/suborganizations.module').then(m => m.SuborganizationsModule)
             }, {
                 path: 'people',
-                loadChildren: './people/people.module#PeopleModule'
+                loadChildren: () => import('./people/people.module').then(m => m.PeopleModule)
             }, {
                 path: 'events',
-                loadChildren: './organization-events/organization-events.module#OrganizationEventsModule'
+                loadChildren: () => import('./organization-events/organization-events.module').then(m => m.OrganizationEventsModule)
             }, {
                 path: 'contacts',
-                loadChildren: './contacts/contacts.module#ContactsModule'
+                loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule)
             }, {
                 path: 'assignments',
-                loadChildren: './assignments/assignments.module#AssignmentsModule'
+                loadChildren: () => import('./assignments/assignments.module').then(m => m.AssignmentsModule)
             }, {
                 path: 'permissions',
-                loadChildren: './permissions/permissions.module#PermissionsModule'
+                loadChildren: () => import('./permissions/permissions.module').then(m => m.PermissionsModule)
             }, {
                 path: 'user',
-                loadChildren: './auth/auth.module#AuthModule'
+                loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
             }, {
                 path: 'reports',
-                loadChildren: './reports/reports.module#ReportsModule'
+                loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule)
             }
         ]
     },

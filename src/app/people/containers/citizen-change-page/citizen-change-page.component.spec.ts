@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CitizenChangePageComponent } from './citizen-change-page.component';
 
@@ -6,7 +6,7 @@ describe('PeopleAddCitizenComponentComponent', () => {
   let component: CitizenChangePageComponent;
   let fixture: ComponentFixture<CitizenChangePageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CitizenChangePageComponent ]
     })

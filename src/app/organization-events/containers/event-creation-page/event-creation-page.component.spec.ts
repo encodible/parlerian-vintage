@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EventCreationPageComponent } from './event-creation-page.component';
 
@@ -6,7 +6,7 @@ describe('EventCreationPageComponent', () => {
   let component: EventCreationPageComponent;
   let fixture: ComponentFixture<EventCreationPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EventCreationPageComponent ]
     })

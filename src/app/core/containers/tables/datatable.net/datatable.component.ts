@@ -12,7 +12,9 @@ declare const $: any;
 
 @Component({
     selector: 'app-data-table-cmp',
-    templateUrl: 'datatable.component.html'
+    templateUrl: 'datatable.component.html',
+    standalone: true,
+    imports: []
 })
 
 export class DataTableComponent implements OnInit, AfterViewInit {

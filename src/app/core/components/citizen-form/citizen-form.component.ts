@@ -1,14 +1,25 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../advanced-search/MyErrorStateMatcher';
 import {CitizenChangeForm, CitizenSearchResult} from '../../../people/services/citizen-api.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import {Location} from '@angular/common';
+import {FieldErrorDisplayComponent} from '../field-error-display/field-error-display.component';
 
 @Component({
     selector: 'app-citizen-form',
     templateUrl: './citizen-form.component.html',
-    styleUrls: ['./citizen-form.component.scss']
+    styleUrls: ['./citizen-form.component.scss'],
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, FieldErrorDisplayComponent]
 })
 export class CitizenFormComponent implements OnInit {
 

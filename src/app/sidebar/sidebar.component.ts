@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {User} from '../auth/models/User';
 import {CURRENT_USER, UaaService} from '../core';
@@ -131,6 +133,8 @@ export const REPORTING_ITEMS = [
 @Component({
     selector: 'app-sidebar-cmp',
     templateUrl: 'sidebar.component.html',
+    standalone: true,
+    imports: [CommonModule, RouterModule]
 })
 export class SidebarComponent implements OnInit {
 

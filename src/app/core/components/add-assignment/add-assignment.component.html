@@ -1,43 +1,92 @@
-<div *ngIf="isPositionSelected">
+@if (isPositionSelected) {
+  <div>
     <h4 class="card-title">Position {{(positionToAssign$ | async).positionName}}</h4>
-    <div *ngIf="isSuborganizationSelected">
+    @if (isSuborganizationSelected) {
+      <div>
         <h4 class="card-description">In suborganization {{selectedSuborganization.commonName}}</h4>
         <div>
-            <button class="btn btn-warning"
-                    (click)="showQuickSearch()">
+          <button class="btn btn-warning"
+            (click)="showQuickSearch()">
+            <i class="material-icons">search</i>
+            Quick Search
+          </button>
+          <button class="btn btn-warning"
+            (click)="showAdvancedSearch()">
+            <i class="material-icons">youtube_searched_for</i>
+            Advanced Search
+          </button>
+          <button class="btn btn-warning"
+            (click)="showAddCitizen()">
+            <i class="material-icons">person_add</i>
+            Add Citizen
+          </button>
+          @if (isQuickSearching) {
+            @defer (on interaction) {
+              <app-quick-search
+                (onSearch)="quickSearch($event)">
+              </app-quick-search>
+            } @placeholder {
+              <div class="loading-placeholder">
                 <i class="material-icons">search</i>
-                Quick Search
-            </button>
-            <button class="btn btn-warning"
-                    (click)="showAdvancedSearch()">
+                <span>Loading Quick Search...</span>
+              </div>
+            }
+          }
+          @if (isAdvancedSearching) {
+            @defer (on interaction) {
+              <app-advanced-search
+                (onSearch)="advancedSearch($event)">
+              </app-advanced-search>
+            } @placeholder {
+              <div class="loading-placeholder">
                 <i class="material-icons">youtube_searched_for</i>
-                Advanced Search
-            </button>
-            <button class="btn btn-warning"
-                    (click)="showAddCitizen()">
+                <span>Loading Advanced Search...</span>
+              </div>
+            }
+          }
+          @if (isAddingCitizen) {
+            @defer (on interaction) {
+              <app-citizen-form
+                [isUpdating]="false"
+                (onChange)="addCitizen($event)" >
+              </app-citizen-form>
+            } @placeholder {
+              <div class="loading-placeholder">
                 <i class="material-icons">person_add</i>
-                Add Citizen
-            </button>
-            <app-quick-search *ngIf="isQuickSearching"
-                              (onSearch)="quickSearch($event)">
-            </app-quick-search>
-            <app-advanced-search *ngIf="isAdvancedSearching"
-                                 (onSearch)="advancedSearch($event)">
-            </app-advanced-search>
-            <app-citizen-form *ngIf="isAddingCitizen"
-            [isUpdating]="false"
-            (onChange)="addCitizen($event)" >
-            </app-citizen-form>
+                <span>Loading Citizen Form...</span>
+              </div>
+            }
+          }
         </div>
-        <app-citizen-selection-list *ngIf="isSelecting"
-                                    [searchResults]="citizenSearchResults"
-                                    (onSelect)="selectCitizen($event)">
-        </app-citizen-selection-list>
-        <app-assignment-form *ngIf="isAssigning"
-                             [suborganization]="selectedSuborganization"
-                             [positionToFill]="selectedPosition"
-                             [initCitizen]="initCitizen"
-                             (onAssign)="assignPosition($event)">
-        </app-assignment-form>
-    </div>
-</div>
+        @if (isSelecting) {
+          @defer (on viewport) {
+            <app-citizen-selection-list
+              [searchResults]="citizenSearchResults"
+              (onSelect)="selectCitizen($event)">
+            </app-citizen-selection-list>
+          } @placeholder {
+            <div class="loading-placeholder">
+              <i class="material-icons">list</i>
+              <span>Loading Citizen Selection...</span>
+            </div>
+          }
+        }
+        @if (isAssigning) {
+          @defer (on interaction) {
+            <app-assignment-form
+              [suborganization]="selectedSuborganization"
+              [positionToFill]="selectedPosition"
+              [initCitizen]="initCitizen"
+              (onAssign)="assignPosition($event)">
+            </app-assignment-form>
+          } @placeholder {
+            <div class="loading-placeholder">
+              <i class="material-icons">assignment</i>
+              <span>Loading Assignment Form...</span>
+            </div>
+          }
+        }
+      </div>
+    }
+  </div>
+}

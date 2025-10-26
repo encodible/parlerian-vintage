@@ -1,17 +1,19 @@
-<div *ngIf="this.selectedSuborganization">
-  <button mat-raised-button class="btn" (click)="back()">
-                        <span class="btn-label">
-                          <i class="material-icons">keyboard_arrow_left</i>
-                        </span>
-    Back
-  </button>
-  <h4 class="">{{this.selectedSuborganization.commonName}} assigned positions</h4>
-  <div class="table-responsive">
-    <app-assignment-simple-list
-            (onEdit)="editAssignment($event)"
-            (onDismiss)="dismissPosition($event)"
-            [assignments]="filteredAssignments"
-    >
-    </app-assignment-simple-list>
+@if (this.selectedSuborganization) {
+  <div>
+    <button mat-raised-button class="btn" (click)="back()">
+      <span class="btn-label">
+        <i class="material-icons">keyboard_arrow_left</i>
+      </span>
+      Back
+    </button>
+    <h4 class="">{{this.selectedSuborganization.commonName}} assigned positions</h4>
+    <div class="table-responsive">
+      <app-assignment-simple-list
+        (onEdit)="editAssignment($event)"
+        (onDismiss)="dismissPosition($event)"
+        [assignments]="filteredAssignments"
+        >
+      </app-assignment-simple-list>
+    </div>
   </div>
-</div>
+}

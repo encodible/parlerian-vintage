@@ -4,7 +4,9 @@ import * as Chartist from 'chartist';
 
 @Component({
     selector: 'app-charts-cmp',
-    templateUrl: './charts.component.html'
+    templateUrl: './charts.component.html',
+    standalone: true,
+    imports: []
 })
 
 export class ChartsComponent implements OnInit {

@@ -1,12 +1,17 @@
 
 import {filter} from 'rxjs/operators';
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, RouterOutlet} from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {NavItem, NavItemType} from '../../core/containers/md/md.module';
 import {Subscription} from 'rxjs';
 import {Location, PopStateEvent} from '@angular/common';
 
 import {NavbarComponent} from '../../shared/navbar/navbar.component';
+import {SidebarComponent} from '../../sidebar/sidebar.component';
+import {FooterComponent} from '../../shared/footer/footer.component';
 import PerfectScrollbar from 'perfect-scrollbar';
 import {LoadingService} from '../../shared/loading.service';
 
@@ -15,7 +20,9 @@ declare const $: any;
 
 @Component({
     selector: 'app-layout',
-    templateUrl: './admin-layout.component.html'
+    templateUrl: './admin-layout.component.html',
+    standalone: true,
+    imports: [CommonModule, RouterModule, RouterOutlet, MatProgressSpinnerModule, NavbarComponent, SidebarComponent, FooterComponent]
 })
 export class AdminLayoutComponent implements OnInit, AfterViewInit {
     public navItems: NavItem[];
@@ -26,8 +33,8 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     location: Location;
     public loading = false;
 
-    @ViewChild('sidebar') sidebar: any;
-    @ViewChild(NavbarComponent) navbar: NavbarComponent;
+    @ViewChild('sidebar', { static: false }) sidebar: any;
+    @ViewChild(NavbarComponent, { static: false }) navbar: NavbarComponent;
 
     constructor(private router: Router, location: Location,
                 private loadingService: LoadingService) {

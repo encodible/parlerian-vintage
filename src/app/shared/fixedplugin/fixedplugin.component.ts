@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 declare const $: any;
 const md: any = {
@@ -12,7 +13,9 @@ const md: any = {
 @Component({
   selector: 'app-fixedplugin',
   templateUrl: './fixedplugin.component.html',
-  styleUrls: ['./fixedplugin.component.css']
+  styleUrls: ['./fixedplugin.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
 
 export class FixedpluginComponent implements OnInit {

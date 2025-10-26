@@ -1,8 +1,15 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import * as _ from 'lodash';
 
+import {QuickSearchComponent} from '../quick-search/quick-search.component';
+import {AdvancedSearchComponent} from '../advanced-search/advanced-search.component';
+import {CitizenFormComponent} from '../citizen-form/citizen-form.component';
+import {CitizenSelectionListComponent} from '../citizen-selection-list/citizen-selection-list.component';
+import {AssignmentFormComponent} from '../assignment-form/assignment-form.component';
 import {PositionToFill} from '../../../assignments/positions';
 import * as fromSuborgs from '../../../suborganizations/reducers';
 import {Suborganization} from '../../../suborganizations/models/suborganization';
@@ -15,7 +22,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
     selector: 'app-add-assignment',
     templateUrl: './add-assignment.component.html',
-    styleUrls: ['./add-assignment.component.scss']
+    styleUrls: ['./add-assignment.component.scss'],
+    standalone: true,
+    imports: [CommonModule, RouterModule, QuickSearchComponent, AdvancedSearchComponent, CitizenFormComponent, CitizenSelectionListComponent, AssignmentFormComponent]
 })
 export class AddAssignmentComponent implements OnDestroy {
 

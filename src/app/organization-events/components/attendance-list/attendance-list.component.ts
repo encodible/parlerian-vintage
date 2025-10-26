@@ -1,4 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {Attendee} from '../../models/Attendee';
 import {OrganizationEvent} from '../../models/OrganizationEvent';
 
@@ -11,7 +16,9 @@ declare interface TableData {
 @Component({
     selector: 'app-attendance-list',
     templateUrl: './attendance-list.component.html',
-    styleUrls: ['./attendance-list.component.scss']
+    styleUrls: ['./attendance-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, TableModule, ButtonModule, MatButtonModule, MatTooltipModule]
 })
 export class AttendanceListComponent implements OnInit {
 
