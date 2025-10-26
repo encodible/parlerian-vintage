@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 declare var $: any;
 
@@ -24,7 +25,9 @@ export interface TableData2 {
 
 @Component({
     selector: 'app-extended-table-cmp',
-    templateUrl: 'extendedtable.component.html'
+    templateUrl: 'extendedtable.component.html',
+    standalone: true,
+    imports: [CommonModule]
 })
 
 export class ExtendedTableComponent implements OnInit {

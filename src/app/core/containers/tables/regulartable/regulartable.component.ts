@@ -3,7 +3,9 @@ import {TableData} from '../../md/md-table/md-table.component';
 
 @Component({
     selector: 'app-regular-table-cmp',
-    templateUrl: 'regulartable.component.html'
+    templateUrl: 'regulartable.component.html',
+    standalone: true,
+    imports: []
 })
 
 export class RegularTableComponent implements OnInit {
