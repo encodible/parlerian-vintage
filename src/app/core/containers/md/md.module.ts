@@ -30,12 +30,11 @@ export interface NavItem {
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
-  ],
-  declarations: [
+    RouterModule,
     MdTableComponent,
     MdChartComponent
   ],
+  declarations: [],
   exports: [
     MdTableComponent,
     MdChartComponent
