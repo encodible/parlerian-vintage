@@ -21,15 +21,14 @@ import { FieldErrorDisplayComponent } from './validationforms/field-error-displa
     FormsModule,
     ReactiveFormsModule,
     NouisliderModule,
-    MaterialModule
+    MaterialModule,
+    ExtendedFormsComponent,
+    RegularFormsComponent,
+    ValidationFormsComponent,
+    WizardComponent,
+    FieldErrorDisplayComponent
   ],
-  declarations: [
-      ExtendedFormsComponent,
-      RegularFormsComponent,
-      ValidationFormsComponent,
-      WizardComponent,
-      FieldErrorDisplayComponent
-  ]
+  declarations: []
 })
 
 export class Forms {}

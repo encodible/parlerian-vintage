@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 declare const google: any;
 
 @Component({
     selector: 'app-vector-maps-cmp',
-    templateUrl: './googlemaps.component.html'
+    templateUrl: './googlemaps.component.html',
+    standalone: true,
+    imports: [CommonModule]
 })
 
 export class GoogleMapsComponent implements OnInit {

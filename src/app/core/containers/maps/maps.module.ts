@@ -20,13 +20,12 @@ import { VectorMapsComponent } from './vectormaps/vectormaps.component';
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCdB1ZWVSXE-PxgSuATMRz0jGFnwnR0z90'
-    })
+    }),
+    FullScreenMapsComponent,
+    GoogleMapsComponent,
+    VectorMapsComponent
   ],
-  declarations: [
-      FullScreenMapsComponent,
-      GoogleMapsComponent,
-      VectorMapsComponent
-  ],
+  declarations: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 

@@ -1,8 +1,14 @@
 import {Component} from '@angular/core';
-
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {PasswordValidation} from './password-validator.component';
+import {FieldErrorDisplayComponent} from './field-error-display/field-error-display.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -14,7 +20,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
     selector: 'app-validationforms-cmp',
-    templateUrl: 'validationforms.component.html'
+    templateUrl: 'validationforms.component.html',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatRippleModule, FieldErrorDisplayComponent]
 })
 
 export class ValidationFormsComponent {
