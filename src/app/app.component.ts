@@ -6,6 +6,8 @@ import {slideInAnimation} from './animations';
 @Component({
     selector: 'app-my-app',
     templateUrl: './app.component.html',
+    standalone: true,
+    imports: [RouterOutlet],
     animations: [
         slideInAnimation
     ]
