@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'app-register-cmp',
-    templateUrl: './register.component.html'
+    templateUrl: './register.component.html',
+    standalone: true,
+    imports: [CommonModule]
 })
 
 export class RegisterComponent implements OnInit, OnDestroy {

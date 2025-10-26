@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
+import {CommonModule} from '@angular/common';
 
 @Component({
     selector: 'app-pricing-cmp',
-    templateUrl: './pricing.component.html'
+    templateUrl: './pricing.component.html',
+    standalone: true,
+    imports: [CommonModule]
 })
 
 export class PricingComponent implements OnInit, OnDestroy {
