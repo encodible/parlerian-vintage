@@ -18,17 +18,16 @@ import {TypographyComponent} from './typography/typography.component';
     CommonModule,
     RouterModule.forChild(ComponentsRoutes),
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    IconsComponent,
+    TypographyComponent,
+    GridSystemComponent,
+    PanelsComponent,
+    ButtonsComponent,
+    NotificationsComponent,
+    SweetAlertComponent
   ],
-  declarations: [
-      ButtonsComponent,
-      GridSystemComponent,
-      IconsComponent,
-      NotificationsComponent,
-      PanelsComponent,
-      SweetAlertComponent,
-      TypographyComponent
-  ]
+  declarations: []
 })
 
 export class ComponentsModule {}
