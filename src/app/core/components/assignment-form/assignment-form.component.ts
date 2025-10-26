@@ -1,4 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 import {Suborganization} from '../../../suborganizations/models/suborganization';
 import {PositionToFill} from '../../../assignments/positions';
 import {PositionAssignmentForm} from '../../../assignments/position-assignments';
@@ -10,7 +15,9 @@ import {Location} from '@angular/common';
 @Component({
     selector: 'app-assignment-form',
     templateUrl: './assignment-form.component.html',
-    styleUrls: ['./assignment-form.component.scss']
+    styleUrls: ['./assignment-form.component.scss'],
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule]
 })
 export class AssignmentFormComponent implements OnInit, OnChanges {
 

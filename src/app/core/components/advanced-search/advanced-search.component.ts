@@ -1,4 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import moment from 'moment';
 import {CitizenAdvancedSearchForm} from '../../../people/services/citizen-api.service';
@@ -7,7 +14,9 @@ import {MyErrorStateMatcher} from './MyErrorStateMatcher';
 @Component({
   selector: 'app-advanced-search',
   templateUrl: './advanced-search.component.html',
-  styleUrls: ['./advanced-search.component.scss']
+  styleUrls: ['./advanced-search.component.scss'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule]
 })
 export class AdvancedSearchComponent implements OnInit {
 

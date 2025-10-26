@@ -19,8 +19,6 @@ import {NameSearchComponent} from './components/name-search/name-search.componen
         FormsModule,
         MaterialModule,
         ReactiveFormsModule,
-    ],
-    declarations: [
         AdvancedSearchComponent,
         AboutViciComponent,
         AddAssignmentComponent,
@@ -30,7 +28,9 @@ import {NameSearchComponent} from './components/name-search/name-search.componen
         QuickSearchComponent,
         CitizenSelectionListComponent,
         CitizenFormComponent,
+        SuborgAssignmentListComponent,
     ],
+    declarations: [],
     exports: [
         AdvancedSearchComponent,
         AssignmentFormComponent,
