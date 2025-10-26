@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 @NgModule({
-    imports: [ RouterModule, CommonModule, MatButtonModule ],
-    declarations: [ NavbarComponent ],
+    imports: [ RouterModule, CommonModule, MatButtonModule, NavbarComponent ],
+    declarations: [],
     exports: [ NavbarComponent ]
 })
 

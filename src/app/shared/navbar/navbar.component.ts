@@ -1,6 +1,8 @@
 
 import {filter} from 'rxjs/operators';
 import {Component, OnInit, Renderer2, ViewChild, ElementRef, Directive} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
 import {ROUTES} from '../.././sidebar/sidebar.component';
 import {Router, ActivatedRoute, NavigationEnd, NavigationStart} from '@angular/router';
 import {Subscription} from 'rxjs';
@@ -17,7 +19,9 @@ declare var $: any;
 
 @Component({
     selector: 'app-navbar-cmp',
-    templateUrl: 'navbar.component.html'
+    templateUrl: 'navbar.component.html',
+    standalone: true,
+    imports: [CommonModule, MatButtonModule]
 })
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
