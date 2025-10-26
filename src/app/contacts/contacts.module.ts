@@ -17,12 +17,11 @@ import {ContactComponent} from './containers/contact/contact.component';
                     }
                 ]
             }
-        ])
-    ],
-    declarations: [
+        ]),
         ContactListComponent,
         ContactComponent
-    ]
+    ],
+    declarations: []
 })
 export class ContactsModule {
 }

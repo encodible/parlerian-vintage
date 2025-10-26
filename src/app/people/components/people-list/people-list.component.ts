@@ -1,4 +1,6 @@
 import {AfterViewInit, Component, NgZone, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
 import {select, Store} from '@ngrx/store';
 import * as fromPeople from '../../reducers';
 import {Observable, Subscription} from 'rxjs';
@@ -17,7 +19,9 @@ declare interface DataTable {
 @Component({
     selector: 'app-people-list',
     templateUrl: './people-list.component.html',
-    styleUrls: ['./people-list.component.scss']
+    styleUrls: ['./people-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, MatButtonModule]
 })
 export class PeopleListComponent implements OnInit, AfterViewInit, OnDestroy {
 

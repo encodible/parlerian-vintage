@@ -102,10 +102,7 @@ const suborganizationRoutes = [
         PrecinctDetailComponent,
         SenateDistrictDetailComponent,
         LegislativeDistrictDetailComponent,
-    ],
-    declarations: [
         SuborgAssignedPositionsComponent,
-        SuborgAssignmentListComponent,
         SuborganizationComponent,
         SuborganizationDetailPageComponent,
         SuborganizationListComponent,
@@ -113,6 +110,7 @@ const suborganizationRoutes = [
         AssignmentsActionPadComponent,
         AssignmentsSearchPageComponent,
     ],
+    declarations: [],
     providers: [
         AccessibleSuborganizationsResolver,
         FillablePositionsResolver,

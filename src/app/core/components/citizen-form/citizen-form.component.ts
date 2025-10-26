@@ -12,13 +12,14 @@ import {MyErrorStateMatcher} from '../advanced-search/MyErrorStateMatcher';
 import {CitizenChangeForm, CitizenSearchResult} from '../../../people/services/citizen-api.service';
 import moment from 'moment';
 import {Location} from '@angular/common';
+import {FieldErrorDisplayComponent} from '../field-error-display/field-error-display.component';
 
 @Component({
     selector: 'app-citizen-form',
     templateUrl: './citizen-form.component.html',
     styleUrls: ['./citizen-form.component.scss'],
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule]
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, FieldErrorDisplayComponent]
 })
 export class CitizenFormComponent implements OnInit {
 

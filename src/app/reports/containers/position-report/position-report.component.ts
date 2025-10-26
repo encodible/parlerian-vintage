@@ -1,14 +1,19 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {PositionService} from '../../../assignments/services/position.service';
 import {PositionDto} from '../../../assignments';
 import {Observable} from 'rxjs';
 import {saveAs} from 'file-saver';
 import moment from 'moment';
+import {PositionReportSelectorComponent} from '../../components/position-report-selector/position-report-selector.component';
 
 @Component({
     selector: 'app-position-report',
     templateUrl: './position-report.component.html',
-    styleUrls: ['./position-report.component.scss']
+    styleUrls: ['./position-report.component.scss'],
+    standalone: true,
+    imports: [CommonModule, MatProgressSpinnerModule, PositionReportSelectorComponent]
 })
 export class PositionReportComponent implements OnInit {
 

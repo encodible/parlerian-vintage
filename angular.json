@@ -113,18 +113,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "md-pro-angular-cli:build"
+            "buildTarget": "md-pro-angular-cli:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "md-pro-angular-cli:build:production"
+              "buildTarget": "md-pro-angular-cli:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "md-pro-angular-cli:build"
+            "buildTarget": "md-pro-angular-cli:build"
           }
         },
         "test": {

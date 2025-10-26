@@ -22,9 +22,10 @@ import {DashboardComponent} from './dashboard.component';
         ]),
         FormsModule,
         MdModule,
-        MaterialModule
+        MaterialModule,
+        DashboardComponent
     ],
-    declarations: [DashboardComponent]
+    declarations: []
 })
 
 export class DashboardModule {}

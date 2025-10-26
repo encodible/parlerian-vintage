@@ -11,13 +11,14 @@ import {CitizenSearchResult} from '../../../people/services/citizen-api.service'
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../advanced-search/MyErrorStateMatcher';
 import {Location} from '@angular/common';
+import {FieldErrorDisplayComponent} from '../field-error-display/field-error-display.component';
 
 @Component({
     selector: 'app-assignment-form',
     templateUrl: './assignment-form.component.html',
     styleUrls: ['./assignment-form.component.scss'],
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule]
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, FieldErrorDisplayComponent]
 })
 export class AssignmentFormComponent implements OnInit, OnChanges {
 
