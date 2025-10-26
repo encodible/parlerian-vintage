@@ -26,8 +26,6 @@ import {reducers} from './reducers';
         FormsModule,
         MaterialModule,
         ReactiveFormsModule,
-    ],
-    declarations: [
         EditUserComponent,
         LoginComponent,
         NotFoundComponent,
@@ -35,7 +33,8 @@ import {reducers} from './reducers';
         LockComponent,
         PricingComponent,
         UserProfileComponent
-    ]
+    ],
+    declarations: []
 })
 
 export class AuthModule {

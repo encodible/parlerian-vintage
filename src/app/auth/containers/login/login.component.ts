@@ -1,4 +1,11 @@
 import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatError} from '@angular/material/form-field';
 import {UaaService} from '../../../core/index';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -15,7 +22,9 @@ declare var $: any;
 
 @Component({
     selector: 'app-login-cmp',
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatProgressSpinnerModule]
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
