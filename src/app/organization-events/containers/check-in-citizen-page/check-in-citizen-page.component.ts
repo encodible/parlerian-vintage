@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-check-in-citizen-page',
   templateUrl: './check-in-citizen-page.component.html',
-  styleUrls: ['./check-in-citizen-page.component.scss']
+  styleUrls: ['./check-in-citizen-page.component.scss'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class CheckInCitizenPageComponent implements OnInit {
 

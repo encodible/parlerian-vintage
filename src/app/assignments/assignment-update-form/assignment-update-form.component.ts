@@ -10,13 +10,14 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PositionAssignmentUpdate} from '../position-assignments';
 import {MyErrorStateMatcher} from '../../core/components/advanced-search/MyErrorStateMatcher';
 import {Location} from '@angular/common';
+import {FieldErrorDisplayComponent} from '../../core/components/field-error-display/field-error-display.component';
 
 @Component({
   selector: 'app-assignment-update-form',
   templateUrl: './assignment-update-form.component.html',
   styleUrls: ['./assignment-update-form.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule]
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, FieldErrorDisplayComponent]
 })
 export class AssignmentUpdateFormComponent implements OnInit {
 

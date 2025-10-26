@@ -72,18 +72,16 @@ const peopleRoutes = [
         ReactiveFormsModule,
         RouterModule.forChild(peopleRoutes),
         StoreModule.forFeature('citizens', reducers),
-    ],
-    declarations: [
         CitizenChangePageComponent,
         PeopleListComponent,
         PersonComponent,
         PeoplePageComponent,
         PeopleSearchComponent,
         PeopleAdvancedSearchComponent,
-        CitizenChangePageComponent,
         PeopleActionPadComponent,
         PeopleActionPadNavComponent,
     ],
+    declarations: [],
     providers: [
         CitizenApi
     ]

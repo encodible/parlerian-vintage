@@ -1,4 +1,8 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {Suborganization} from '../../models/suborganization';
 import {select, Store} from '@ngrx/store';
 import {Observable, Subscription} from 'rxjs';
@@ -17,7 +21,9 @@ declare interface DataTable {
 @Component({
     selector: 'app-suborganization-list',
     templateUrl: './suborganization-list.component.html',
-    styleUrls: ['./suborganization-list.component.scss']
+    styleUrls: ['./suborganization-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, RouterModule, MatButtonModule, MatTooltipModule]
 })
 export class SuborganizationListComponent implements OnInit, AfterViewInit {
 

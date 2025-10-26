@@ -73,9 +73,7 @@ const organizationEventsRoutes = [
         RouterModule.forChild(organizationEventsRoutes),
         StoreModule.forFeature('organization-events', reducers),
         TableModule,
-        ButtonModule
-    ],
-    declarations: [
+        ButtonModule,
         AttendanceListComponent,
         AttendanceListContainerComponent,
         AttendeeComponent,
@@ -88,6 +86,7 @@ const organizationEventsRoutes = [
         EventFormComponent,
         EventCreationPageComponent,
     ],
+    declarations: [],
     providers: [
         AttendanceListResolver,
         EventListResolver,

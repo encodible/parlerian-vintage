@@ -1,4 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {EventInfo} from '../../models/OrganizationEvent';
 import moment from 'moment';
 
@@ -6,7 +10,9 @@ import moment from 'moment';
 @Component({
     selector: 'app-event-list',
     templateUrl: './event-list.component.html',
-    styleUrls: ['./event-list.component.scss']
+    styleUrls: ['./event-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, RouterModule, MatButtonModule, MatTooltipModule]
 })
 export class EventListComponent implements OnInit {
 

@@ -1,5 +1,9 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {TableData} from '../core/containers/md/md-table/md-table.component';
+import {MdTableComponent} from '../core/containers/md/md-table/md-table.component';
 
 import * as Chartist from 'chartist';
 
@@ -7,7 +11,9 @@ declare const $: any;
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html'
+  templateUrl: './dashboard.component.html',
+  standalone: true,
+  imports: [CommonModule, MatButtonModule, MatTooltipModule, MdTableComponent]
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }

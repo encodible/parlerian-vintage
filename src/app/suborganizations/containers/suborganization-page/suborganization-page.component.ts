@@ -1,4 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import {Router} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
@@ -9,7 +11,9 @@ import {Suborganization} from '../../models/suborganization';
 @Component({
     selector: 'app-suborganization-page',
     templateUrl: './suborganization-page.component.html',
-    styleUrls: ['./suborganization-page.component.scss']
+    styleUrls: ['./suborganization-page.component.scss'],
+    standalone: true,
+    imports: [CommonModule, RouterModule]
 })
 export class SuborganizationPageComponent implements OnInit, OnDestroy {
 

@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonModule} from '@angular/material/button';
 import {SuborganizationService} from '../services/suborganization.service';
 import {Store} from '@ngrx/store';
 import * as suborgState from '../reducers';
@@ -9,11 +12,16 @@ import {Router} from '@angular/router';
 import {AssignmentsService} from '../../assignments/services/assignments.service';
 import * as SuborgActions from '../actions/suborganization.actions';
 import {Location} from '@angular/common';
+import {QuickSearchComponent} from '../../core/components/quick-search/quick-search.component';
+import {NameSearchComponent} from '../../core/components/name-search/name-search.component';
+import {AssignmentSimpleListComponent} from '../../assignments/assignment-simple-list/assignment-simple-list.component';
 
 @Component({
     selector: 'app-assignments-search-page',
     templateUrl: './assignments-search-page.component.html',
-    styleUrls: ['./assignments-search-page.component.scss']
+    styleUrls: ['./assignments-search-page.component.scss'],
+    standalone: true,
+    imports: [CommonModule, MatProgressSpinnerModule, MatButtonModule, QuickSearchComponent, NameSearchComponent, AssignmentSimpleListComponent]
 })
 export class AssignmentsSearchPageComponent implements OnInit {
 

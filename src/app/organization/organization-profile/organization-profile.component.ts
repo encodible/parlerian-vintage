@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 import * as Chartist from 'chartist';
 
@@ -7,7 +8,9 @@ declare const $: any;
 @Component({
     selector: 'app-organization-profile',
     templateUrl: './organization-profile.component.html',
-    styleUrls: ['./organization-profile.component.scss']
+    styleUrls: ['./organization-profile.component.scss'],
+    standalone: true,
+    imports: [CommonModule]
 })
 export class OrganizationProfileComponent implements OnInit, AfterViewInit {
 

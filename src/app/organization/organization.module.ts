@@ -12,9 +12,10 @@ import {MdModule} from '../core/containers/md/md.module';
         CommonModule,
         RouterModule.forChild(OrganizationRoutes),
         MdModule,
-        MaterialModule
+        MaterialModule,
+        OrganizationProfileComponent
     ],
-    declarations: [OrganizationProfileComponent]
+    declarations: []
 })
 export class OrganizationModule {
 }

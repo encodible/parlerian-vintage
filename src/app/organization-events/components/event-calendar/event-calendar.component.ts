@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {EventInfo} from '../../models/OrganizationEvent';
 
 declare const swal: any;
@@ -7,7 +8,9 @@ declare const $: any;
 @Component({
     selector: 'app-event-calendar',
     templateUrl: './event-calendar.component.html',
-    styleUrls: ['./event-calendar.component.scss']
+    styleUrls: ['./event-calendar.component.scss'],
+    standalone: true,
+    imports: [CommonModule]
 })
 export class EventCalendarComponent implements OnInit {
     @Input() eventList: EventInfo[];
