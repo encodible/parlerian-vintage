@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 import {PositionAssignment} from '../../models/PositionAssignment';
 import moment from 'moment';
 
@@ -6,7 +9,9 @@ import moment from 'moment';
 @Component({
     selector: 'app-assignment-list',
     templateUrl: './assignment-list.component.html',
-    styleUrls: ['./assignment-list.component.scss']
+    styleUrls: ['./assignment-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, TableModule, ButtonModule]
 })
 export class AssignmentListComponent implements OnInit {
 

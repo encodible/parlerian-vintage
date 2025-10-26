@@ -71,8 +71,6 @@ const assignmentsRoutes = [
         StoreModule.forFeature('assignments', reducers),
         TableModule,
         ButtonModule,
-    ],
-    declarations: [
         AssignmentDetailComponent,
         AssignmentListComponent,
         AssignmentsPageComponent,
@@ -82,6 +80,7 @@ const assignmentsRoutes = [
         AssignmentUpdateFormComponent,
         AssignmentSimpleListComponent,
     ],
+    declarations: [],
     exports: [
         AssignmentSimpleListComponent
     ],
