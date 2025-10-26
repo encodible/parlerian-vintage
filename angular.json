@@ -52,7 +52,7 @@
               "node_modules/fullcalendar/dist/fullcalendar.js",
               "node_modules/jqvmap/dist/jquery.vmap.min.js",
               "node_modules/jqvmap/dist/maps/jquery.vmap.world.js",
-              "node_modules/nouislider/distribute/nouislider.min.js",
+              "node_modules/nouislider/dist/nouislider.min.js",
               "node_modules/arrive/src/arrive.js",
               "node_modules/bootstrap-notify/bootstrap-notify.js",
               "node_modules/hammerjs/hammer.min.js",
