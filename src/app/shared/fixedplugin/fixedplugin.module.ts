@@ -4,9 +4,10 @@ import { FixedpluginComponent } from './fixedplugin.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FixedpluginComponent
   ],
-  declarations: [FixedpluginComponent],
+  declarations: [],
   exports: [FixedpluginComponent]
 })
 export class FixedpluginModule { }
