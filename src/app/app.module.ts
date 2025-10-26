@@ -60,12 +60,11 @@ import {LoadingService} from './shared/loading.service';
             logOnly: environment.production,
         }),
         ToastrModule.forRoot(),
-    ],
-    declarations: [
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent
     ],
+    declarations: [],
     bootstrap: [AppComponent],
     providers: [
         AssignmentsService,

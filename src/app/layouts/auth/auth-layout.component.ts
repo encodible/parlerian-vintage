@@ -1,11 +1,16 @@
 import {filter} from 'rxjs/operators';
 import {Component, ElementRef, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, RouterOutlet} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
 import {NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-layout',
-  templateUrl: './auth-layout.component.html'
+  templateUrl: './auth-layout.component.html',
+  standalone: true,
+  imports: [CommonModule, RouterModule, RouterOutlet, MatButtonModule]
 })
 export class AuthLayoutComponent implements OnInit {
   private toggleButton: any;
