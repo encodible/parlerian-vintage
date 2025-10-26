@@ -1,4 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatError} from '@angular/material/form-field';
 import {PositionToFill} from '../positions';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PositionAssignmentUpdate} from '../position-assignments';
@@ -8,7 +14,9 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-assignment-update-form',
   templateUrl: './assignment-update-form.component.html',
-  styleUrls: ['./assignment-update-form.component.scss']
+  styleUrls: ['./assignment-update-form.component.scss'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule]
 })
 export class AssignmentUpdateFormComponent implements OnInit {
 

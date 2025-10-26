@@ -1,10 +1,15 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {PositionAssignment} from '../models/PositionAssignment';
 
 @Component({
     selector: 'app-assignment-simple-list',
     templateUrl: './assignment-simple-list.component.html',
-    styleUrls: ['./assignment-simple-list.component.scss']
+    styleUrls: ['./assignment-simple-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, MatButtonModule, MatTooltipModule]
 })
 export class AssignmentSimpleListComponent implements OnInit {
 

@@ -1,12 +1,16 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {Location} from '@angular/common';
 import {AssignmentsService} from '../../services/assignments.service';
 import {PositionAssignmentUpdate} from '../../position-assignments';
-import {Location} from '@angular/common';
+import {AssignmentUpdateFormComponent} from '../../assignment-update-form/assignment-update-form.component';
 
 @Component({
     selector: 'app-assignment-detail',
     templateUrl: './assignment-detail.component.html',
-    styleUrls: ['./assignment-detail.component.scss']
+    styleUrls: ['./assignment-detail.component.scss'],
+    standalone: true,
+    imports: [CommonModule, AssignmentUpdateFormComponent]
 })
 export class AssignmentDetailComponent implements OnInit {
 
