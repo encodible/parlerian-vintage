@@ -99,11 +99,11 @@ const suborganizationRoutes = [
         RouterModule.forChild(suborganizationRoutes),
         StoreModule.forFeature('suborganizations', reducers),
         AssignmentsModule,
-    ],
-    declarations: [
-        LegislativeDistrictDetailComponent,
         PrecinctDetailComponent,
         SenateDistrictDetailComponent,
+        LegislativeDistrictDetailComponent,
+    ],
+    declarations: [
         SuborgAssignedPositionsComponent,
         SuborgAssignmentListComponent,
         SuborganizationComponent,

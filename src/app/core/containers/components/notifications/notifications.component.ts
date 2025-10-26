@@ -1,12 +1,21 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
 import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatRippleModule} from '@angular/material/core';
 
 declare const $: any;
 
 @Component({
     selector: 'app-notifications-cmp',
-    templateUrl: 'notifications.component.html'
+    templateUrl: 'notifications.component.html',
+    standalone: true,
+    imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatRippleModule]
 })
 export class NotificationsComponent implements OnInit {
     showNotification(from: any, align: any) {
